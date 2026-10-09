@@ -208,9 +208,18 @@ a { color: inherit; }
   height: 12%;
   position: absolute;
   z-index: 4;
-  left: 3%;
-  bottom: 10%;
-  display: none;
+  left: 3.5%;
+  bottom: 18%;
+  display: block;
+  color: transparent;
+  font-size: 0;
+  cursor: pointer;
+}
+
+.hero > .hero-shop-link:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  border-radius: 999px;
 }
 
 .hero-copy {
@@ -272,8 +281,7 @@ a { color: inherit; }
 }
 
 .hero-copy,
-.hero-benefits,
-.hero > .hero-shop-link {
+.hero-benefits {
   display: none !important;
 }
 
