@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pesquise perfumes e fragrâncias no catálogo Full Flow e consulte preços e disponibilidade pelo WhatsApp." />
+  <meta name="theme-color" content="#ed1680" />
+  <link rel="icon" type="image/png" href="p10.png" />
+  <title>Full Flow | Pesquisa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="search.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body id="top" class="site-page">
+  <header class="site-header">
+    <div class="announcement-bar">
+      <span class="announcement-copy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>Perfumes Originais&nbsp; | &nbsp;Entrega em todo Moçambique</span>
+      <div class="utility-links">
+        <a href="search.html" aria-label="Pesquisar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></a>
+        <span class="utility-heart heart-icon" data-like-trigger role="button" tabindex="0" aria-label="Favoritos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.1-8.8 11-8.8 11S3.2 13.9 3.2 8.8a4.7 4.7 0 0 1 8.8-2.3 4.7 4.7 0 0 1 8.8 2.3Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></span>
+        <a href="products.html" aria-label="Ver produtos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></a>
+        <a class="auth-link" data-auth-trigger href="login.html">Entrar / Registar</a>
+      </div>
+    </div>
+    <div class="main-header">
+      <a class="site-brand" href="index.html" aria-label="Full Flow"><img class="brand-image" src="ff.png" alt=""><img class="brand-wordmark" src="fu.png" alt="Full Flow"></a>
+      <nav class="main-nav" aria-label="Navegação principal"><a href="index.html">Início</a><a href="products.html">Loja</a><a href="products.html#categories">Categorias</a><a href="index.html#about-us">Sobre Nós</a><a href="#contact">Contacto</a></nav>
+      <div class="search-wrap">
+        <form class="header-search" role="search">
+          <input type="search" aria-label="Procurar perfumes" placeholder="Procurar perfumes..." autocomplete="off" aria-controls="search-suggestions" aria-expanded="false">
+          <button type="submit" aria-label="Ver resultados">⌕</button>
+        </form>
+        <div class="search-suggestions" id="search-suggestions" role="region" aria-label="Sugestões de pesquisa" hidden></div>
+      </div>
+    </div>
+  </header>
+  <main class="page">
+    <div class="search-top">
+      <form class="search-box" id="results-search-form">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="perfume-search" type="search" placeholder="Procurar perfumes..." autocomplete="off" aria-label="Procurar perfumes" />
+        <button class="search-submit" type="submit" aria-label="Pesquisar">→</button>
+      </form>
+      <a class="close-link" href="index.html">Fechar</a>
+    </div>
+
+    <h1 class="section-title" id="results-title">Resultados da pesquisa</h1>
+
+    <section class="search-result-grid" id="result-grid" aria-live="polite"></section>
+
+    <p id="empty" class="empty">Digite uma marca, categoria ou nome de perfume para começar.</p>
+
+    <div class="actions">
+      <a class="show-all" id="show-all-results" href="products.html">Ver todos os produtos</a>
+    </div>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="footer-main">
+      <a class="footer-brand" href="index.html" aria-label="Full Flow"><img src="logo.png" alt="Full Flow Fragrances"></a>
+      <div class="footer-col"><h3>Links Rápidos</h3><a href="index.html">Início</a><a href="products.html">Loja</a><a href="products.html#categories">Categorias</a><a href="index.html#about-us">Sobre Nós</a><a href="#contact">Contacto</a></div>
+      <div class="footer-col"><h3>Atendimento</h3><span class="footer-contact-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 3v12h10V6H7Zm4 14h2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg><span class="footer-contact-numbers"><a href="https://wa.me/27656134719">+27 65 613 4719</a><span aria-hidden="true">/</span><a href="https://wa.me/258846889950" aria-label="WhatsApp +258 846 889 950">846 889 950</a></span></span><a href="mailto:info@fullflow.co.mz">✉&nbsp; info@fullflow.co.mz</a><span class="footer-contact-line footer-location-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><a class="footer-location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Ahmed+Sekou+Tour%C3%A9%2C+3274%2C+Alto+Ma%C3%A9%2C+Maputo%2C+Mozambique" target="_blank" rel="noopener noreferrer" aria-label="Abrir localização no Google Maps">Maputo — Alto Maé<br>Av. Ahmed Sekou Touré, n.º 3274, próximo à escola Be-a-Bá.</a></span></div>
+      <div class="footer-col payment-col"><h3>Pagamento</h3><p class="payment-note">O pagamento é combinado com a equipa após a confirmação da encomenda pelo WhatsApp.</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Full Flow Fragrances. Todos os direitos reservados.</span><div class="footer-social">
+      <a href="https://www.instagram.com/full_flow_za?utm_source=ig_web_button_share_sheet&rpxt=ZDNlZDc0MzIxNw==" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+      <a href="https://www.facebook.com/" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.4 21v-8.2h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5h1.7V3.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.2H7.2v3.2H10V21h3.4Z"/></svg></a>
+      <a class="back-to-top" href="#top" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></a>
+    </div></div>
+  </footer>
+
+  <script src="catalog-data.js"></script>
+  <script>
+    (function () {
+      var input = document.getElementById('perfume-search');
+      var form = document.getElementById('results-search-form');
+      var grid = document.getElementById('result-grid');
+      var empty = document.getElementById('empty');
+      var title = document.getElementById('results-title');
+      var showAll = document.getElementById('show-all-results');
+
+      function normalize(value) {
+        return String(value || '').toLocaleLowerCase('pt').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+      }
+      function formatPrice(price) {
+        return new Intl.NumberFormat('pt-MZ', { useGrouping: true, maximumFractionDigits: 0 }).format(price);
+      }
+      function render() {
+        var term = input.value.trim();
+        var terms = normalize(term).split(/\s+/).filter(Boolean);
+        var products = window.fullflowCatalog.products.filter(function (product) {
+          var content = normalize(product.searchText + ' ' + product.displayName + ' ' + product.brandId);
+          return terms.length && terms.every(function (word) { return content.indexOf(word) !== -1; });
+        });
+        grid.replaceChildren();
+        title.textContent = term ? 'Resultados da pesquisa: "' + term + '"' : 'Resultados da pesquisa';
+        showAll.href = products.length ? 'products.html?q=' + encodeURIComponent(term) : 'products.html';
+        showAll.textContent = products.length ? 'Ver todos os resultados →' : 'Ver todos os produtos';
+        empty.hidden = products.length > 0;
+        empty.textContent = products.length ? '' : (term
+          ? 'Nenhum produto encontrado. Não encontramos perfumes para "' + term + '".'
+          : 'Digite uma marca, categoria ou nome de perfume para começar.');
+        products.forEach(function (product) {
+          var card = document.createElement('a');
+          card.className = 'search-result-card';
+          card.href = product.detailUrl;
+          var image = document.createElement('img');
+          image.src = product.image;
+          image.alt = product.displayName;
+          image.loading = 'lazy';
+          var name = document.createElement('strong');
+          name.textContent = product.displayName;
+          var details = document.createElement('span');
+          details.textContent = (product.type === 'roll-on' ? 'Roll-On' : 'Perfume') + ' · ' +
+            (product.size || 'Tamanho a confirmar');
+          var price = document.createElement('span');
+          price.className = 'search-result-price';
+          price.textContent = product.price === null
+            ? 'Preço sob consulta'
+            : product.type === 'roll-on'
+              ? product.price.toFixed(2).replace('.', ',') + ' ' + product.currency
+              : formatPrice(product.price) + ' ' + product.currency;
+          card.appendChild(image);
+          card.appendChild(name);
+          card.appendChild(details);
+          card.appendChild(price);
+          grid.appendChild(card);
+        });
+      }
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        render();
+      });
+      input.addEventListener('input', render);
+      var query = new URLSearchParams(window.location.search).get('q');
+      if (query) input.value = query;
+      render();
+    })();
+  </script>
+  <script src="favorites.js"></script>
+  <script src="cart-drawer.js"></script>
+  <script src="product-search.js"></script>
+</body>
+</html>

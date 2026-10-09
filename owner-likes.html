@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Consulte os favoritos guardados localmente neste navegador." />
+  <meta name="theme-color" content="#ed1680" />
+  <link rel="icon" type="image/png" href="p10.png" />
+  <title>Full Flow | Registos de favoritos</title>
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; padding: 20px; font-family: 'Poppins', sans-serif; background: #fff; color: #1f2c3d; }
+    .card { box-sizing: border-box; width: min(calc(100vw - 48px), 1440px); max-width: 1440px; margin: 0 auto; background: #fff; border-radius: 14px; padding: 18px; box-shadow: 0 10px 30px rgba(31,44,61,.12); }
+    h1 { margin: 0 0 12px; font-size: 24px; }
+    .meta { margin: 0 0 12px; color: #62748a; font-size: 13px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid #e4e9ef; }
+    th { font-size: 12px; text-transform: uppercase; letter-spacing: .4px; color: #5d6e82; }
+    .empty { padding: 14px 0 6px; color: #6d7f95; }
+    .actions { margin-top: 12px; display: flex; gap: 8px; }
+    button { border: 0; border-radius: 8px; height: 36px; padding: 0 14px; cursor: pointer; font-weight: 600; }
+    .clear { background: #d84aa1; color: #fff; }
+    .back { background: #1f2c3d; color: #fff; }
+  </style>
+</head>
+<body id="top" class="site-page owner-likes-page">
+  <header class="site-header">
+    <div class="announcement-bar">
+      <span class="announcement-copy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>Perfumes Originais&nbsp; | &nbsp;Entrega em todo Moçambique</span>
+      <div class="utility-links">
+        <a href="search.html" aria-label="Pesquisar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></a>
+        <span class="utility-heart heart-icon" data-like-trigger role="button" tabindex="0" aria-label="Favoritos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.1-8.8 11-8.8 11S3.2 13.9 3.2 8.8a4.7 4.7 0 0 1 8.8-2.3 4.7 4.7 0 0 1 8.8 2.3Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></span>
+        <a href="products.html" aria-label="Ver produtos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></a>
+        <a class="auth-link" data-auth-trigger href="login.html">Entrar / Registar</a>
+      </div>
+    </div>
+    <div class="main-header">
+      <a class="site-brand" href="index.html" aria-label="Full Flow"><img class="brand-image" src="ff.png" alt=""><img class="brand-wordmark" src="fu.png" alt="Full Flow"></a>
+      <nav class="main-nav" aria-label="Navegação principal"><a href="index.html">Início</a><a href="products.html">Loja</a><a href="products.html#categories">Categorias</a><a href="index.html#about-us">Sobre Nós</a><a href="#contact">Contacto</a></nav>
+      <div class="search-wrap">
+        <form class="header-search" role="search">
+          <input type="search" aria-label="Procurar perfumes" placeholder="Procurar perfumes..." autocomplete="off" aria-controls="search-suggestions" aria-expanded="false">
+          <button type="submit" aria-label="Ver resultados">⌕</button>
+        </form>
+        <div class="search-suggestions" id="search-suggestions" role="region" aria-label="Sugestões de pesquisa" hidden></div>
+      </div>
+    </div>
+  </header>
+  <main class="card">
+    <h1>Favoritos deste navegador</h1>
+    <p class="meta">Esta lista é local a este navegador; não é um painel administrativo nem reúne dados de outros clientes.</p>
+
+    <table id="likes-table" hidden>
+      <thead>
+        <tr>
+          <th>Favorito</th>
+          <th>Tipo</th>
+          <th>Página</th>
+          <th>Data e hora</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <p id="empty" class="empty">Ainda não existem favoritos registados.</p>
+
+    <div class="actions">
+      <button class="clear" id="clear-likes" type="button">Apagar registos</button>
+      <button class="back" type="button" onclick="window.location.href='index.html'">Voltar ao site</button>
+    </div>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="footer-main">
+      <a class="footer-brand" href="index.html" aria-label="Full Flow"><img src="logo.png" alt="Full Flow Fragrances"></a>
+      <div class="footer-col"><h3>Links Rápidos</h3><a href="index.html">Início</a><a href="products.html">Loja</a><a href="products.html#categories">Categorias</a><a href="index.html#about-us">Sobre Nós</a><a href="#contact">Contacto</a></div>
+      <div class="footer-col"><h3>Atendimento</h3><span class="footer-contact-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 3v12h10V6H7Zm4 14h2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg><span class="footer-contact-numbers"><a href="https://wa.me/27656134719">+27 65 613 4719</a><span aria-hidden="true">/</span><a href="https://wa.me/258846889950" aria-label="WhatsApp +258 846 889 950">846 889 950</a></span></span><a href="mailto:info@fullflow.co.mz">✉&nbsp; info@fullflow.co.mz</a><span class="footer-contact-line footer-location-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><a class="footer-location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Ahmed+Sekou+Tour%C3%A9%2C+3274%2C+Alto+Ma%C3%A9%2C+Maputo%2C+Mozambique" target="_blank" rel="noopener noreferrer" aria-label="Abrir localização no Google Maps">Maputo — Alto Maé<br>Av. Ahmed Sekou Touré, n.º 3274, próximo à escola Be-a-Bá.</a></span></div>
+      <div class="footer-col payment-col"><h3>Pagamento</h3><p class="payment-note">O pagamento é combinado com a equipa após a confirmação da encomenda pelo WhatsApp.</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Full Flow Fragrances. Todos os direitos reservados.</span><div class="footer-social">
+      <a href="https://www.instagram.com/full_flow_za?utm_source=ig_web_button_share_sheet&rpxt=ZDNlZDc0MzIxNw==" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+      <a href="https://www.facebook.com/" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.4 21v-8.2h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5h1.7V3.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.2H7.2v3.2H10V21h3.4Z"/></svg></a>
+      <a class="back-to-top" href="#top" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></a>
+    </div></div>
+  </footer>
+
+  <script>
+    (function () {
+      var key = 'fullflow_likes';
+      var table = document.getElementById('likes-table');
+      var tbody = table.querySelector('tbody');
+      var empty = document.getElementById('empty');
+
+      function readLikes() {
+        try {
+          var raw = localStorage.getItem(key);
+          var likes = raw ? JSON.parse(raw) : [];
+          if (!Array.isArray(likes) || likes.some(function (like) {
+            return !like || typeof like !== 'object';
+          })) throw new Error('Os favoritos guardados não têm um formato válido.');
+          return likes;
+        } catch (error) {
+          console.error('Não foi possível ler os favoritos guardados.', error);
+          return null;
+        }
+      }
+
+      function render() {
+        var likes = readLikes();
+        tbody.innerHTML = '';
+
+        if (!likes) {
+          table.hidden = true;
+          empty.textContent = 'Não foi possível ler os favoritos guardados neste navegador.';
+          empty.hidden = false;
+          return;
+        }
+        if (!likes.length) {
+          table.hidden = true;
+          empty.textContent = 'Ainda não existem favoritos guardados.';
+          empty.hidden = false;
+          return;
+        }
+
+        table.hidden = false;
+        empty.hidden = true;
+
+        for (var i = likes.length - 1; i >= 0; i -= 1) {
+          var item = likes[i];
+          var tr = document.createElement('tr');
+          var favorite = document.createElement('td');
+          favorite.textContent = item.name || '-';
+          var type = document.createElement('td');
+          type.textContent = item.type === 'product' ? 'Produto' : 'Página';
+          var page = document.createElement('td');
+          page.textContent = item.page || '-';
+          var date = document.createElement('td');
+          var timestamp = item.at ? new Date(item.at) : null;
+          date.textContent = timestamp && !Number.isNaN(timestamp.getTime())
+            ? timestamp.toLocaleString('pt-MZ')
+            : '-';
+          tr.appendChild(favorite);
+          tr.appendChild(type);
+          tr.appendChild(page);
+          tr.appendChild(date);
+          tbody.appendChild(tr);
+        }
+      }
+
+      document.getElementById('clear-likes').addEventListener('click', function () {
+        try {
+          localStorage.removeItem(key);
+          render();
+        } catch (error) {
+          console.error('Não foi possível apagar os favoritos guardados.', error);
+          alert('Não foi possível apagar os favoritos neste navegador.');
+        }
+      });
+
+      render();
+    })();
+  </script>
+  <script src="favorites.js"></script>
+  <script src="cart-drawer.js"></script>
+  <script src="catalog-data.js"></script>
+  <script src="product-search.js"></script>
+</body>
+</html>

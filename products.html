@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore perfumes, óleo e cremes Full Flow, filtre as fragrâncias por categoria e confirme preços e disponibilidade pelo WhatsApp." />
+  <meta name="theme-color" content="#ed1680" />
+  <link rel="icon" type="image/png" href="p10.png" />
+  <title>Full Flow | Loja</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="products.css">
+  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="footer.css">
+</head>
+<body id="top" class="site-page">
+  <header class="site-header">
+    <div class="announcement-bar">
+      <span class="announcement-copy"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1V10Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>Perfumes Originais&nbsp; | &nbsp;Entrega em todo Moçambique</span>
+      <div class="utility-links">
+        <a href="search.html" aria-label="Pesquisar"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"/></svg></a>
+        <span class="utility-heart heart-icon" data-like-trigger role="button" tabindex="0" aria-label="Favoritos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.8c0 5.1-8.8 11-8.8 11S3.2 13.9 3.2 8.8a4.7 4.7 0 0 1 8.8-2.3 4.7 4.7 0 0 1 8.8 2.3Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></span>
+        <a href="products.html" aria-label="Ver produtos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg></a>
+        <a class="auth-link" data-auth-trigger href="login.html">Entrar / Registar</a>
+      </div>
+    </div>
+    <div class="main-header">
+      <a class="site-brand" href="index.html" aria-label="Full Flow">
+        <img class="brand-image" src="ff.png" alt=""><img class="brand-wordmark" src="fu.png" alt="Full Flow">
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a class="active" href="products.html">Loja</a>
+        <a href="#categories">Categorias</a>
+        <a href="index.html#about-us">Sobre Nós</a>
+        <a href="#contact">Contacto</a>
+      </nav>
+      <div class="search-wrap">
+        <form class="header-search" role="search">
+          <input type="search" aria-label="Procurar perfumes" placeholder="Procurar perfumes..." autocomplete="off" aria-controls="search-suggestions" aria-expanded="false">
+          <button type="submit" aria-label="Ver resultados">⌕</button>
+        </form>
+        <div class="search-suggestions" id="search-suggestions" role="region" aria-label="Sugestões de pesquisa" hidden></div>
+      </div>
+    </div>
+  </header>
+  <main class="page shop-page">
+    <section class="shop-hero" aria-labelledby="shop-title">
+      <div class="shop-hero-copy">
+        <p class="shop-eyebrow">FULL FLOW FRAGRANCES</p>
+        <h1 id="shop-title">Explore a <em>nossa coleção</em></h1>
+        <p>Perfumes originais para cada estilo e momento.</p>
+        <a class="shop-hero-button" href="#products-grid">Ver produtos <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <nav class="shop-categories" aria-label="Filtrar por categoria">
+      <button class="category-chip active" type="button" data-category-filter="all">Todos</button>
+      <button class="category-chip" type="button" data-category-filter="feminino">Femininos</button>
+      <button class="category-chip" type="button" data-category-filter="masculino">Masculinos</button>
+      <button class="category-chip" type="button" data-category-filter="roll-on-feminino">Roll-On feminino</button>
+      <button class="category-chip" type="button" data-category-filter="roll-on-masculino">Roll-On masculino</button>
+      <button class="category-chip" type="button" data-category-filter="oleo">Óleo</button>
+      <button class="category-chip" type="button" data-category-filter="creme-feminino">Creme feminino</button>
+      <button class="category-chip" type="button" data-category-filter="creme-masculino">Creme masculino</button>
+      <button class="category-chip" type="button" data-category-filter="novidades">Novidades</button>
+      <button class="category-chip" type="button" data-category-filter="mais-vendidos">Mais Vendidos</button>
+    </nav>
+
+    <section class="mens-featured" id="mens-collection-feature" aria-labelledby="mens-featured-title" hidden>
+      <div class="mens-featured-image" id="collection-feature-image-wrap">
+        <img id="collection-feature-image" src="full-flow-homme.png" alt="Perfume Full Flow masculino">
+        <span class="mens-image-label" id="collection-image-label">Full Flow -MENS EAU DE PARFUM</span>
+      </div>
+      <div class="mens-featured-content">
+        <p class="mens-featured-eyebrow" id="collection-eyebrow">A COLEÇÃO MASCULINA</p>
+        <h2 id="mens-featured-title"><span id="collection-title">Presença que</span> <em id="collection-title-accent">fica na memória.</em></h2>
+        <p class="mens-featured-intro" id="collection-intro">Descubra fragrâncias para cada estilo e escolha a sua favorita.</p>
+        <div class="mens-featured-details">
+          <div class="mens-fragrance-preview" id="collection-fragrance-preview">
+            <h3 id="collection-list-title">Encontre a sua fragrância</h3>
+            <div class="mens-fragrance-list" id="mens-fragrance-list"></div>
+            <button class="mens-show-all" id="mens-show-all" type="button" hidden>Ver todos os perfumes</button>
+          </div>
+          <ul class="mens-store-benefits" aria-label="Vantagens Full Flow">
+            <li>
+              <span class="mens-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6v3H9zM8 6h8l1 3v11H7V9l1-3Z"/><path d="M10 12h4M10 15h4"/></svg></span>
+              <span><strong>Produtos para si</strong><small>Descubra a linha Full Flow</small></span>
+            </li>
+            <li>
+              <span class="mens-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.6 2.8 7.8 7 10 4.2-2.2 7-5.4 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+              <span><strong>Encomenda segura</strong><small>Confirme com a nossa equipa</small></span>
+            </li>
+            <li>
+              <span class="mens-benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"/><circle cx="7.5" cy="18" r="1.7"/><circle cx="17.5" cy="18" r="1.7"/></svg></span>
+              <span><strong>Entrega em Moçambique</strong><small>Consulte a disponibilidade</small></span>
+            </li>
+          </ul>
+        </div>
+        <p class="collection-coming-soon" id="collection-coming-soon" hidden>Esta coleção estará disponível em breve.</p>
+        <a class="mens-featured-cta" id="collection-featured-cta" href="#products-grid">Explorar a coleção <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="catalog" id="categories" aria-label="Catálogo de perfumes">
+      <aside class="sidebar" aria-label="Filtros de produtos">
+        <h2>Filtrar produtos</h2>
+        <fieldset class="filter-group">
+          <legend>Escolha uma coleção</legend>
+          <div class="gender-choices" role="group" aria-label="Escolher perfumes por género">
+            <button class="gender-choice" type="button" data-gender-choice="feminino" aria-pressed="false">Feminino</button>
+            <button class="gender-choice" type="button" data-gender-choice="masculino" aria-pressed="false">Masculino</button>
+          </div>
+        </fieldset>
+        <fieldset class="filter-group perfume-list-group" id="perfume-list-group" hidden>
+          <legend id="perfume-list-title">Perfumes</legend>
+          <div class="perfume-list-options" id="perfume-list-options"></div>
+          <button class="show-category-products" id="show-category-products" type="button" hidden>Ver todos desta coleção</button>
+        </fieldset>
+        <fieldset class="filter-group" hidden>
+          <legend>Categoria selecionada</legend>
+          <label><input type="checkbox" name="category" value="feminino"> Femininos</label>
+          <label><input type="checkbox" name="category" value="masculino"> Masculinos</label>
+        </fieldset>
+        <fieldset class="filter-group" id="brand-filter-group">
+          <legend>Marca</legend>
+          <div id="brand-filter-options"></div>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend>Tipo de produto</legend>
+          <label><input type="checkbox" name="product-type" value="roll-on"> Roll-On <span>(10)</span></label>
+          <label><input type="checkbox" name="product-type" value="eau-de-parfum"> Perfume <span>(80)</span></label>
+        </fieldset>
+        <fieldset class="filter-group">
+          <legend>Tamanho</legend>
+          <label><input type="checkbox" name="size" value="50"> 50ml</label>
+          <label><input type="checkbox" name="size" value="75"> 75ml</label>
+          <label><input type="checkbox" name="size" value="80"> 80ml</label>
+          <label><input type="checkbox" name="size" value="90"> 90ml</label>
+          <label><input type="checkbox" name="size" value="100"> 100ml</label>
+          <label><input type="checkbox" name="size" value="125"> 125ml</label>
+        </fieldset>
+        <div class="filter-group price-filter">
+          <label class="price-label" for="price-limit">Preço máximo (MT; preços definidos)</label>
+          <input id="price-limit" type="range" min="0" max="3000" step="100" value="3000">
+          <div class="price-values"><span>0 MT</span><span id="price-limit-value">3.000 MT</span></div>
+        </div>
+      </aside>
+
+      <div class="products-area">
+        <div class="catalog-heading">
+          <div><h2>Todos os Perfumes</h2><p>Encontre a fragrância perfeita para si. Preço e disponibilidade a confirmar pelo WhatsApp.</p></div>
+          <div class="sort-row">
+            <label for="sort-select">Ordenar por:</label>
+            <select id="sort-select" aria-label="Ordenar produtos">
+              <option value="recommended">Recomendados</option>
+              <option value="best-sellers">Mais vendidos</option>
+              <option value="new-arrivals">Novidades</option>
+              <option value="price-low">Preço: menor para maior</option>
+              <option value="price-high">Preço: maior para menor</option>
+              <option value="name-asc">Nome: A a Z</option>
+              <option value="name-desc">Nome: Z a A</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="grid" id="products-grid">
+          <article class="item" data-name="J'adore Dior" data-brand="dior" data-category="feminino" data-size="100" data-price="2800" data-best-seller="true" data-new-arrival="false" data-in-stock="true" data-recommended-order="1">
+            <a class="thumb-link" href="product-detail-ladies-edp.html"><img class="thumb" src="1.jpeg" alt="J'adore Dior"></a>
+            <button class="product-favorite" type="button" aria-label="Adicionar J'adore Dior aos favoritos">♡</button><span class="badge">Mais vendido</span>
+            <a class="item-link" href="product-detail-ladies-edp.html">J'adore Dior</a><small class="item-brand">Dior</small><small class="item-size">Perfume · 100ml</small>
+            <div class="item-buy-row"><a class="item-price" href="product-detail-ladies-edp.html">2.800 MT</a><a class="item-cart" href="product-detail-ladies-edp.html" aria-label="Ver J'adore Dior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></a></div>
+          </article>
+          <article class="item" data-name="Black Opium YSL" data-brand="ysl" data-category="feminino" data-size="90" data-price="2600" data-best-seller="true" data-new-arrival="true" data-in-stock="true" data-recommended-order="2">
+            <a class="thumb-link" href="product-detail-ladies-edp.html"><img class="thumb" src="2.jpg" alt="Black Opium YSL"></a>
+            <button class="product-favorite" type="button" aria-label="Adicionar Black Opium YSL aos favoritos">♡</button><span class="badge badge-sale">Novidade</span>
+            <a class="item-link" href="product-detail-ladies-edp.html">Black Opium YSL</a><small class="item-brand">Yves Saint Laurent</small><small class="item-size">Perfume · 90ml</small>
+            <div class="item-buy-row"><a class="item-price" href="product-detail-ladies-edp.html">2.600 MT</a><a class="item-cart" href="product-detail-ladies-edp.html" aria-label="Ver Black Opium YSL"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></a></div>
+          </article>
+          <article class="item" data-name="Good Girl Carolina Herrera" data-brand="carolina-herrera" data-category="feminino" data-size="80" data-price="2700" data-best-seller="true" data-new-arrival="false" data-in-stock="true" data-recommended-order="3">
+            <a class="thumb-link" href="product-detail-ladies-edp.html"><img class="thumb" src="lady.jpeg" alt="Good Girl Carolina Herrera"></a>
+            <button class="product-favorite" type="button" aria-label="Adicionar Good Girl aos favoritos">♡</button><span class="badge">Mais vendido</span>
+            <a class="item-link" href="product-detail-ladies-edp.html">Good Girl</a><small class="item-brand">Carolina Herrera</small><small class="item-size">Perfume · 80ml</small>
+            <div class="item-buy-row"><a class="item-price" href="product-detail-ladies-edp.html">2.700 MT</a><a class="item-cart" href="product-detail-ladies-edp.html" aria-label="Ver Good Girl"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></a></div>
+          </article>
+          <article class="item" data-name="212 VIP Rosé" data-brand="carolina-herrera" data-category="feminino" data-size="80" data-price="2300" data-best-seller="true" data-new-arrival="true" data-in-stock="true" data-recommended-order="4">
+            <a class="thumb-link" href="product-detail-rollon-ladies.html"><img class="thumb" src="4.png" alt="212 VIP Rosé"></a>
+            <button class="product-favorite" type="button" aria-label="Adicionar 212 VIP Rosé aos favoritos">♡</button><span class="badge badge-sale">Novidade</span>
+            <a class="item-link" href="product-detail-rollon-ladies.html">212 VIP Rosé</a><small class="item-brand">Carolina Herrera</small><small class="item-size">Perfume · 80ml</small>
+            <div class="item-buy-row"><a class="item-price" href="product-detail-rollon-ladies.html">2.300 MT</a><a class="item-cart" href="product-detail-rollon-ladies.html" aria-label="Ver 212 VIP Rosé"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></a></div>
+          </article>
+          <article class="item" data-name="La Vie Est Belle Lancôme" data-brand="lancome" data-category="feminino" data-size="75" data-price="2600" data-best-seller="true" data-new-arrival="false" data-in-stock="true" data-recommended-order="5">
+            <a class="thumb-link" href="product-detail-ladies-edp.html"><img class="thumb" src="5.png" alt="La Vie Est Belle Lancôme"></a>
+            <button class="product-favorite" type="button" aria-label="Adicionar La Vie Est Belle aos favoritos">♡</button><span class="badge">Mais vendido</span>
+            <a class="item-link" href="product-detail-ladies-edp.html">La Vie Est Belle</a><small class="item-brand">Lancôme</small><small class="item-size">Perfume · 75ml</small>
+            <div class="item-buy-row"><a class="item-price" href="product-detail-ladies-edp.html">2.600 MT</a><a class="item-cart" href="product-detail-ladies-edp.html" aria-label="Ver La Vie Est Belle"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></a></div>
+          </article>
+          <article class="item" data-name="Versace Bright Crystal" data-brand="versace" data-category="feminino" data-size="90" data-price="2300" data-best-seller="false" data-new-arrival="true" data-in-stock="true" data-recommended-order="7">
+            <a class="thumb-link" href="product-detail-rollon-ladies.html"><img class="thumb" src="12.png" alt="Versace Bright Crystal"></a>
+            <button class="product-favorite" type="button" aria-label="Adicionar Versace Bright Crystal aos favoritos">♡</button><span class="badge badge-sale">Novidade</span>
+            <a class="item-link" href="product-detail-rollon-ladies.html">Bright Crystal</a><small class="item-brand">Versace</small><small class="item-size">Perfume · 90ml</small>
+            <div class="item-buy-row"><a class="item-price" href="product-detail-rollon-ladies.html">2.300 MT</a><a class="item-cart" href="product-detail-rollon-ladies.html" aria-label="Ver Bright Crystal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8"/></svg></a></div>
+          </article>
+        </div>
+        <div class="no-results" id="no-results" hidden>
+          <p id="no-results-message">Nenhum produto corresponde aos filtros selecionados.</p>
+          <a class="no-results-reset" id="no-results-reset" href="products.html">Ver todos os produtos</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="shop-promo" aria-label="Conheça a Full Flow">
+      <div><p>FULL FLOW FRAGRANCES</p><h2>Originalidade e elegância<br>em cada fragrância.</h2><a href="index.html#about-us">Saiba mais <span aria-hidden="true">→</span></a></div>
+    </section>
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="footer-main">
+      <a class="footer-brand" href="index.html" aria-label="Full Flow"><img src="logo.png" alt="Full Flow Fragrances"></a>
+      <div class="footer-col"><h3>Links Rápidos</h3><a href="index.html">Início</a><a href="products.html">Loja</a><a href="products.html#categories">Categorias</a><a href="index.html#about-us">Sobre Nós</a><a href="#contact">Contacto</a></div>
+      <div class="footer-col"><h3>Atendimento</h3><span class="footer-contact-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 3v12h10V6H7Zm4 14h2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg><span class="footer-contact-numbers"><a href="https://wa.me/27656134719">+27 65 613 4719</a><span aria-hidden="true">/</span><a href="https://wa.me/258846889950" aria-label="WhatsApp +258 846 889 950">846 889 950</a></span></span><a href="mailto:info@fullflow.co.mz">✉&nbsp; info@fullflow.co.mz</a><span class="footer-contact-line footer-location-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><a class="footer-location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Ahmed+Sekou+Tour%C3%A9%2C+3274%2C+Alto+Ma%C3%A9%2C+Maputo%2C+Mozambique" target="_blank" rel="noopener noreferrer" aria-label="Abrir localização no Google Maps">Maputo — Alto Maé<br>Av. Ahmed Sekou Touré, n.º 3274, próximo à escola Be-a-Bá.</a></span></div>
+      <div class="footer-col payment-col"><h3>Pagamento</h3><p class="payment-note">O pagamento é combinado com a equipa após a confirmação da encomenda pelo WhatsApp.</p></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Full Flow Fragrances. Todos os direitos reservados.</span><div class="footer-social">
+      <a href="https://www.instagram.com/full_flow_za?utm_source=ig_web_button_share_sheet&rpxt=ZDNlZDc0MzIxNw==" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></svg></a>
+      <a href="https://www.facebook.com/" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.4 21v-8.2h2.8l.4-3.2h-3.2v-2c0-.9.3-1.5 1.6-1.5h1.7V3.2c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.2H7.2v3.2H10V21h3.4Z"/></svg></a>
+      <a class="back-to-top" href="#top" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 14 6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg></a>
+    </div></div>
+  </footer>
+  <script src="catalog-data.js"></script>
+  <script>
+    (function () {
+      var select = document.getElementById('sort-select');
+      var grid = document.getElementById('products-grid');
+      var priceLimit = document.getElementById('price-limit');
+      var priceValue = document.getElementById('price-limit-value');
+      var categoryButtons = Array.prototype.slice.call(document.querySelectorAll('[data-category-filter]'));
+      var genderChoices = Array.prototype.slice.call(document.querySelectorAll('[data-gender-choice]'));
+      var perfumeListGroup = document.getElementById('perfume-list-group');
+      var perfumeListTitle = document.getElementById('perfume-list-title');
+      var perfumeListOptions = document.getElementById('perfume-list-options');
+      var showCategoryProducts = document.getElementById('show-category-products');
+      var catalogTitle = document.querySelector('.catalog-heading h2');
+      var catalog = document.querySelector('.catalog');
+      var shopHero = document.querySelector('.shop-hero');
+      var mensFeatured = document.getElementById('mens-collection-feature');
+      var mensFragranceList = document.getElementById('mens-fragrance-list');
+      var mensShowAll = document.getElementById('mens-show-all');
+      var featureImage = document.getElementById('collection-feature-image');
+      var featureImageWrap = document.getElementById('collection-feature-image-wrap');
+      var featureImageLabel = document.getElementById('collection-image-label');
+      var featureEyebrow = document.getElementById('collection-eyebrow');
+      var featureTitle = document.getElementById('collection-title');
+      var featureTitleAccent = document.getElementById('collection-title-accent');
+      var featureIntro = document.getElementById('collection-intro');
+      var featureListTitle = document.getElementById('collection-list-title');
+      var featureListPreview = document.getElementById('collection-fragrance-preview');
+      var featureComingSoon = document.getElementById('collection-coming-soon');
+      var featureCta = document.getElementById('collection-featured-cta');
+      var activeFeatureCategory = '';
+      var normalizeProductType = function (value) {
+        var type = String(value || '').trim().toLowerCase();
+        if (!type) return 'eau-de-parfum';
+        var normalized = type.replace(/\s+/g, '-');
+        if (normalized === 'rollon' || normalized === 'roll-on' || normalized === 'roll-on-feminino' || normalized === 'roll-on-masculino') return 'roll-on';
+        if (normalized === 'eau-de-parfum' || normalized === 'eau-de-parfums' || normalized === 'perfume' || normalized === 'edp') return 'eau-de-parfum';
+        return normalized;
+      };
+      var collectionFeatures = {
+        masculino: {
+          image: 'men.png',
+          alt: 'Perfume Full Flow masculino',
+          label: 'Full Flow -MENS EAU DE PARFUM',
+          eyebrow: 'A COLEÇÃO MASCULINA',
+          title: 'O melhor',
+          accent: 'da Town.',
+          intro: 'Descubra fragrâncias para cada estilo e escolha a sua favorita.',
+          listTitle: 'Encontre a sua fragrância',
+          cta: 'Explorar a coleção'
+        },
+        feminino: {
+          image: 'feme.png',
+          alt: 'Perfume Full Flow feminino',
+          label: 'Full Flow - LADIES EAU DE PARFUM',
+          eyebrow: 'A COLEÇÃO FEMININA',
+          title: 'O melhor',
+          accent: 'da Town.',
+          intro: 'Explore perfumes femininos e encontre o aroma que combina consigo.',
+          listTitle: 'Encontre o seu perfume',
+          cta: 'Explorar os perfumes'
+        },
+        'roll-on-feminino': {
+          image: '5.png',
+          alt: 'Roll-On Full Flow feminino de 50 ml',
+          label: 'Full Flow - LADIES ROLL-ON',
+          eyebrow: 'ROLL-ON FEMININO',
+          title: 'O melhor',
+          accent: 'da Town.',
+          intro: 'Descubra os Roll-Ons femininos Full Flow e leve o seu aroma favorito consigo.',
+          listTitle: 'Escolha o seu Roll-On',
+          cta: 'Explorar os Roll-Ons',
+          gender: 'feminino',
+          productType: 'roll-on',
+          itemLabel: 'Roll-On'
+        },
+        'roll-on-masculino': {
+          image: '12.png',
+          alt: 'Roll-On Full Flow masculino de 50 ml',
+          label: 'Full Flow - MENS ROLL-ON',
+          eyebrow: 'ROLL-ON MASCULINO',
+          title: 'O melhor',
+          accent: 'da Town.',
+          intro: 'Descubra os Roll-Ons masculinos Full Flow e leve o seu aroma favorito consigo.',
+          listTitle: 'Escolha o seu Roll-On',
+          cta: 'Explorar os Roll-Ons',
+          gender: 'masculino',
+          productType: 'roll-on',
+          itemLabel: 'Roll-On'
+        },
+        oleo: {
+          image: '3.PNG',
+          alt: 'Óleo perfumado Tissue Oil Full Flow',
+          label: 'FULL FLOW · TISSUE OIL',
+          eyebrow: 'CUIDADO PERFUMADO',
+          title: 'Um cuidado',
+          accent: 'com toque especial.',
+          intro: 'Conheça o óleo perfumado Full Flow para completar a sua rotina.',
+          comingSoon: true
+        },
+        'creme-feminino': {
+          image: '44.png',
+          alt: 'Loção corporal Full Flow para mulheres',
+          label: 'FULL FLOW · FEMME',
+          eyebrow: 'CUIDADO FEMININO',
+          title: 'Pele cuidada',
+          accent: 'com a sua fragrância.',
+          intro: 'Escolha a sua fragrância de creme corporal feminino Full Flow.',
+          listTitle: 'Fragrâncias da linha feminina',
+          fragrances: [
+            'Azzaro Wanted Girl',
+            'CH Good Girl',
+            'Escada - Sol y Fiesta',
+            'Paco Rabanne Million Gold',
+            'Paco Rabanne Olympea',
+            'Victoria’s Secret - Rosy Ruby'
+          ],
+          comingSoon: true
+        },
+        'creme-masculino': {
+          image: '4.png',
+          alt: 'Loção corporal Full Flow para homens',
+          label: 'FULL FLOW · HOMME',
+          eyebrow: 'CUIDADO MASCULINO',
+          title: 'Cuidado diário',
+          accent: 'com identidade.',
+          intro: 'Escolha a sua fragrância de creme corporal masculino Full Flow.',
+          listTitle: 'Fragrâncias da linha masculina',
+          fragrances: [
+            'Azzaro Wanted',
+            'Diesel Bad',
+            'Dior Sauvage',
+            'Paco Rabanne 1 Million Lucky',
+            'JPG Scandal',
+            'Paco Rabanne Invictus Victory Elixir'
+          ],
+          comingSoon: true
+        }
+      };
+      var oldFemaleItems = Array.prototype.slice.call(grid.querySelectorAll('.item[data-category="feminino"]'));
+      oldFemaleItems.forEach(function (item) { item.remove(); });
+      Array.prototype.slice.call(grid.querySelectorAll('.item[data-category="masculino"]')).forEach(function (item) {
+        item.remove();
+      });
+
+      var femaleProducts = window.fullflowCatalog.feminino;
+
+      var cartPath = 'M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 1.9-1.4L22 8H6M10 21a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm8 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z';
+      femaleProducts.forEach(function (product, index) {
+        var isRollOn = normalizeProductType(product.type) === 'roll-on';
+        var detailPage = isRollOn ? 'product-detail-rollon-ladies.html' : 'product-detail-ladies-edp.html';
+        var productPrice = product.price;
+        var detailUrl = product.detailUrl;
+        var item = document.createElement('article');
+        item.className = 'item';
+        item.dataset.name = product.name;
+        item.dataset.brand = product.brand;
+        item.dataset.brandLabel = product.label;
+        item.dataset.category = 'feminino';
+        item.dataset.size = product.size ? String(parseFloat(product.size)) : '';
+        item.dataset.price = productPrice === null ? '' : String(productPrice);
+        item.dataset.currency = product.currency;
+        item.dataset.productType = isRollOn ? 'roll-on' : 'eau-de-parfum';
+        item.dataset.bestSeller = String(product.bestSeller === true);
+        item.dataset.newArrival = String(product.newArrival === true);
+        item.dataset.recommendedOrder = String(index + 1);
+
+        var imageLink = document.createElement('a');
+        imageLink.className = 'thumb-link';
+        imageLink.href = detailUrl;
+        var image = document.createElement('img');
+        image.className = 'thumb';
+        image.src = product.image || (isRollOn ? 'rl.jpg' : 'lady.jpeg');
+        image.alt = (isRollOn ? 'Roll-On feminino Full Flow - ' : 'Perfume feminino Full Flow - ') + product.name;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        imageLink.appendChild(image);
+
+        var favorite = document.createElement('button');
+        favorite.className = 'product-favorite';
+        favorite.type = 'button';
+        favorite.setAttribute('aria-pressed', 'false');
+        favorite.setAttribute('aria-label', 'Adicionar ' + product.name + ' aos favoritos');
+        favorite.textContent = '♡';
+
+        var name = document.createElement('a');
+        name.className = 'item-link';
+        name.href = detailUrl;
+        name.textContent = product.displayName || product.name;
+
+        var brand = document.createElement('small');
+        brand.className = 'item-brand';
+        brand.textContent = product.label;
+
+        var size = document.createElement('small');
+        size.className = 'item-size';
+        size.textContent = product.size
+          ? (isRollOn ? 'Roll-On' : 'Perfume') + ' · ' + product.size
+          : 'Tamanho a confirmar';
+
+        var buyRow = document.createElement('div');
+        buyRow.className = 'item-buy-row';
+        var price = document.createElement('a');
+        price.className = 'item-price';
+        price.href = detailUrl;
+        price.textContent = productPrice === null
+          ? 'Preço sob consulta'
+          : new Intl.NumberFormat('pt-MZ', { maximumFractionDigits: 2 }).format(productPrice) + ' ' + product.currency;
+
+        var cart = document.createElement('a');
+        cart.className = 'item-cart';
+        cart.href = detailUrl;
+        cart.setAttribute('aria-label', 'Ver ' + product.name);
+        var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 24 24');
+        svg.setAttribute('aria-hidden', 'true');
+        var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', cartPath);
+        path.setAttribute('fill', 'none');
+        path.setAttribute('stroke', 'currentColor');
+        path.setAttribute('stroke-linecap', 'round');
+        path.setAttribute('stroke-linejoin', 'round');
+        path.setAttribute('stroke-width', '1.8');
+        svg.appendChild(path);
+        cart.appendChild(svg);
+
+        buyRow.appendChild(price);
+        buyRow.appendChild(cart);
+        item.appendChild(imageLink);
+        item.appendChild(favorite);
+        item.appendChild(name);
+        item.appendChild(brand);
+        item.appendChild(size);
+        item.appendChild(buyRow);
+        grid.appendChild(item);
+      });
+
+      var maleProducts = window.fullflowCatalog.masculino;
+
+      var maleTemplate = grid.querySelector('.item[data-category="feminino"]');
+      maleProducts.forEach(function (product, index) {
+        var isRollOn = normalizeProductType(product.type) === 'roll-on';
+        var detailPage = isRollOn ? 'product-detail-rollon-men.html' : 'product-detail.html';
+        var productPrice = product.price;
+        var detailUrl = product.detailUrl;
+        var item = maleTemplate.cloneNode(true);
+        item.dataset.name = product.name;
+        item.dataset.brand = product.brand;
+        item.dataset.brandLabel = product.label;
+        item.dataset.category = 'masculino';
+        item.dataset.size = product.size ? String(parseFloat(product.size)) : '';
+        item.dataset.price = productPrice === null ? '' : String(productPrice);
+        item.dataset.currency = product.currency;
+        item.dataset.productType = isRollOn ? 'roll-on' : 'eau-de-parfum';
+        item.dataset.bestSeller = String(product.bestSeller === true);
+        item.dataset.newArrival = String(product.newArrival === true);
+        item.dataset.recommendedOrder = String(femaleProducts.length + index + 1);
+
+        item.querySelectorAll('a').forEach(function (link) { link.href = detailUrl; });
+        var image = item.querySelector('.thumb');
+        image.src = product.image || (isRollOn ? 'rm.jpg' : 'mascu.jpeg');
+        image.alt = (isRollOn ? 'Roll-On masculino Full Flow - ' : 'Perfume masculino Full Flow - ') + product.name;
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        item.querySelector('.product-favorite').setAttribute('aria-label', 'Adicionar ' + product.name + ' aos favoritos');
+        item.querySelector('.item-link').textContent = product.displayName || product.name;
+        item.querySelector('.item-brand').textContent = product.label;
+        item.querySelector('.item-size').textContent = product.size
+          ? (isRollOn ? 'Roll-On' : 'Perfume') + ' · ' + product.size
+          : 'Tamanho a confirmar';
+        item.querySelector('.item-price').textContent = productPrice === null
+          ? 'Preço sob consulta'
+          : new Intl.NumberFormat('pt-MZ', { maximumFractionDigits: 2 }).format(productPrice) + ' ' + product.currency;
+        item.querySelector('.product-favorite').setAttribute('aria-pressed', 'false');
+        item.querySelector('.item-cart').setAttribute('aria-label', 'Ver ' + product.name);
+        grid.appendChild(item);
+      });
+
+      var items = Array.prototype.slice.call(grid.querySelectorAll('.item'));
+      var selectedProductKey = '';
+      var pageParams = new URLSearchParams(window.location.search);
+      var searchQuery = pageParams.get('q') || '';
+      var searchTerms = searchQuery.toLocaleLowerCase('pt').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().split(/\s+/).filter(Boolean);
+      var requestedCategory = pageParams.get('category');
+      if (categoryButtons.some(function (button) {
+        return button.dataset.categoryFilter === requestedCategory;
+      })) {
+        var requestedCategoryInput = document.querySelector('input[name="category"][value="' + requestedCategory + '"]');
+        if (requestedCategoryInput) requestedCategoryInput.checked = true;
+        categoryButtons.forEach(function (button) {
+          button.classList.toggle('active', button.dataset.categoryFilter === requestedCategory);
+        });
+      }
+      var requestedType = pageParams.get('type');
+      if (['roll-on', 'eau-de-parfum'].indexOf(requestedType) !== -1) {
+        var requestedTypeInput = document.querySelector('input[name="product-type"][value="' + requestedType + '"]');
+        if (requestedTypeInput) requestedTypeInput.checked = true;
+      }
+      var shopTitle = document.getElementById('shop-title');
+      if (searchQuery && shopTitle) {
+        shopTitle.textContent = 'Resultados da pesquisa: ' + searchQuery;
+        var shopDescription = document.querySelector('.shop-hero-copy > p:not(.shop-eyebrow)');
+        if (shopDescription) shopDescription.textContent = 'Perfumes encontrados para "' + searchQuery + '".';
+        categoryButtons.forEach(function (button) {
+          button.classList.toggle('active', button.dataset.categoryFilter === (requestedCategory || 'all'));
+        });
+      }
+      var brandOptions = document.getElementById('brand-filter-options');
+      var brandCounts = {};
+      items.forEach(function (item) {
+        var brandId = item.dataset.brand;
+        if (!brandCounts[brandId]) {
+          brandCounts[brandId] = { label: item.dataset.brandLabel || brandId, count: 0 };
+        }
+        brandCounts[brandId].count += 1;
+      });
+      Object.keys(brandCounts).sort(function (a, b) {
+        return brandCounts[a].label.localeCompare(brandCounts[b].label, 'pt');
+      }).forEach(function (brandId) {
+        var label = document.createElement('label');
+        var input = document.createElement('input');
+        input.type = 'checkbox';
+        input.name = 'brand';
+        input.value = brandId;
+        var name = document.createElement('span');
+        name.textContent = brandCounts[brandId].label;
+        var count = document.createElement('span');
+        count.textContent = '(' + brandCounts[brandId].count + ')';
+        label.appendChild(input);
+        label.appendChild(name);
+        label.appendChild(count);
+        brandOptions.appendChild(label);
+      });
+      var requestedBrand = pageParams.get('brand');
+      if (requestedBrand) {
+        var brandInput = Array.prototype.slice.call(brandOptions.querySelectorAll('input[name="brand"]'))
+          .filter(function (input) { return input.value === requestedBrand; })[0];
+        if (brandInput) brandInput.checked = true;
+      }
+
+      function checkedValues(name) {
+        return Array.prototype.slice.call(document.querySelectorAll('input[name="' + name + '"]:checked')).map(function (input) {
+          return input.value;
+        });
+      }
+
+      function renderPerfumeList(category) {
+        if (category !== 'feminino' && category !== 'masculino') {
+          perfumeListGroup.hidden = true;
+          genderChoices.forEach(function (button) {
+            button.setAttribute('aria-pressed', 'false');
+          });
+          return;
+        }
+
+        perfumeListGroup.hidden = false;
+        perfumeListTitle.textContent = category === 'feminino' ? 'Perfumes femininos' : 'Perfumes masculinos';
+        perfumeListOptions.replaceChildren();
+        genderChoices.forEach(function (button) {
+          button.setAttribute('aria-pressed', String(button.dataset.genderChoice === category));
+        });
+
+        items.filter(function (item) {
+          return item.dataset.category === category;
+        }).forEach(function (item) {
+          var key = item.dataset.name + '|' + item.dataset.productType;
+          var button = document.createElement('button');
+          button.className = 'perfume-list-option';
+          button.type = 'button';
+          button.dataset.productKey = key;
+          button.setAttribute('aria-pressed', String(selectedProductKey === key));
+
+          var name = document.createElement('span');
+          name.textContent = item.querySelector('.item-link').textContent;
+          var details = document.createElement('small');
+          var isItemRollOn = normalizeProductType(item.dataset.productType) === 'roll-on';
+          details.textContent = (item.dataset.brandLabel || '') + ' · '
+            + (isItemRollOn ? 'Roll-On' : 'Perfume');
+          button.appendChild(name);
+          button.appendChild(details);
+          button.addEventListener('click', function () {
+            selectedProductKey = key;
+            perfumeListOptions.querySelectorAll('.perfume-list-option').forEach(function (option) {
+              option.setAttribute('aria-pressed', String(option.dataset.productKey === selectedProductKey));
+            });
+            showCategoryProducts.hidden = false;
+            catalogTitle.textContent = 'Perfume selecionado';
+            renderItems();
+            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+          perfumeListOptions.appendChild(button);
+        });
+        showCategoryProducts.hidden = Boolean(!selectedProductKey);
+      }
+
+      function renderCollectionFragranceList(category) {
+        mensFragranceList.replaceChildren();
+        var feature = collectionFeatures[category];
+        if (feature.fragrances) {
+          feature.fragrances.forEach(function (fragrance) {
+            var label = document.createElement('span');
+            label.className = 'mens-fragrance-option';
+            label.textContent = fragrance;
+            mensFragranceList.appendChild(label);
+          });
+          return;
+        }
+        var gender = feature.gender || category;
+        var productType = feature.productType || 'eau-de-parfum';
+        var fragrances = items.filter(function (item) {
+          return item.dataset.category === gender && item.dataset.productType === productType;
+        });
+        fragrances.forEach(function (item) {
+          var key = item.dataset.name + '|' + item.dataset.productType;
+          var button = document.createElement('button');
+          button.className = 'mens-fragrance-option';
+          button.type = 'button';
+          button.dataset.productKey = key;
+          button.setAttribute('aria-pressed', String(selectedProductKey === key));
+          button.textContent = item.querySelector('.item-link').textContent;
+          button.addEventListener('click', function () {
+            selectedProductKey = key;
+            mensFragranceList.querySelectorAll('.mens-fragrance-option').forEach(function (option) {
+              option.setAttribute('aria-pressed', String(option.dataset.productKey === selectedProductKey));
+            });
+            mensShowAll.hidden = false;
+            catalogTitle.textContent = item.querySelector('.item-link').textContent;
+            renderItems();
+            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+          mensFragranceList.appendChild(button);
+        });
+      }
+
+      function renderCollectionFeature(category) {
+        var feature = collectionFeatures[category];
+        activeFeatureCategory = feature ? category : '';
+        mensFeatured.hidden = !feature;
+        shopHero.hidden = Boolean(feature);
+        catalog.hidden = Boolean(feature && feature.comingSoon);
+        if (!feature) return;
+
+        featureImage.src = feature.image;
+        featureImage.alt = feature.alt;
+        featureImageWrap.dataset.collection = category;
+        mensFeatured.dataset.collection = category;
+        featureImageLabel.textContent = feature.label;
+        featureEyebrow.textContent = feature.eyebrow;
+        featureTitle.textContent = feature.title;
+        featureTitleAccent.textContent = feature.accent;
+        featureIntro.textContent = feature.intro;
+        featureListTitle.textContent = feature.listTitle || '';
+        featureListPreview.hidden = Boolean(feature.comingSoon && !feature.fragrances);
+        featureComingSoon.hidden = !feature.comingSoon;
+        featureCta.hidden = Boolean(feature.comingSoon);
+        featureCta.firstChild.textContent = feature.cta || '';
+        mensShowAll.textContent = feature.itemLabel ? 'Ver todos os Roll-Ons' : 'Ver todos os perfumes';
+        if (!feature.comingSoon || feature.fragrances) renderCollectionFragranceList(category);
+      }
+
+      function activateCategory(category, clearFilters) {
+        categoryButtons.forEach(function (button) {
+          button.classList.toggle('active', button.dataset.categoryFilter === category);
+        });
+        document.querySelectorAll('input[name="category"]').forEach(function (input) {
+          input.checked = input.value === category;
+        });
+        if (clearFilters) {
+          document.querySelectorAll('input[name="brand"], input[name="product-type"], input[name="size"]').forEach(function (input) {
+            input.checked = false;
+          });
+          priceLimit.value = priceLimit.max;
+        }
+        selectedProductKey = '';
+        showCategoryProducts.hidden = true;
+        catalogTitle.textContent = category === 'feminino'
+          ? 'Perfumes Femininos'
+          : category === 'masculino'
+            ? 'Perfumes Masculinos'
+            : category === 'roll-on-feminino'
+              ? 'Roll-On Feminino'
+              : category === 'roll-on-masculino'
+                ? 'Roll-On Masculino'
+            : category === 'oleo'
+              ? 'Óleo Full Flow'
+              : category === 'creme-feminino'
+                ? 'Creme Feminino Full Flow'
+                : category === 'creme-masculino'
+                  ? 'Creme Masculino Full Flow'
+                  : category === 'novidades'
+                    ? 'Novidades'
+                    : category === 'mais-vendidos'
+                      ? 'Mais Vendidos'
+                      : 'Todos os Perfumes';
+        mensShowAll.hidden = true;
+        renderPerfumeList(category);
+        perfumeListGroup.hidden = category !== 'feminino' && category !== 'masculino';
+        renderCollectionFeature(category);
+        renderItems();
+      }
+
+      function renderItems() {
+        var categories = checkedValues('category');
+        var brands = checkedValues('brand');
+        var productTypes = checkedValues('product-type');
+        var sizes = checkedValues('size');
+        var maxPrice = Number(priceLimit.value);
+        var visibleCount = 0;
+
+        items.forEach(function (item) {
+          var categoryTerms = item.dataset.category === 'feminino'
+            ? 'femininos feminino mulheres mulher ladies women femme'
+            : 'masculinos masculino homens homem mens men homme';
+          var typeTerms = normalizeProductType(item.dataset.productType) === 'roll-on' ? 'roll on roller' : 'eau de parfum perfume edp';
+          var searchableText = (item.dataset.name + ' ' + (item.dataset.brandLabel || '') + ' '
+            + item.dataset.category + ' ' + categoryTerms + ' ' + item.dataset.productType + ' ' + typeTerms).toLocaleLowerCase('pt')
+            .normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+          var matchesSearch = searchTerms.every(function (word) { return searchableText.indexOf(word) !== -1; });
+          var matchesCategory = (!categories.length || categories.indexOf(item.dataset.category) !== -1);
+          var selectedCategory = categoryButtons.filter(function (button) { return button.classList.contains('active'); })[0];
+          if (selectedCategory && selectedCategory.dataset.categoryFilter !== 'all') {
+            var categoryFilter = selectedCategory.dataset.categoryFilter;
+            if (categoryFilter.indexOf('roll-on-') === 0) {
+              var rollOnGender = categoryFilter.slice('roll-on-'.length);
+              matchesCategory = matchesCategory && item.dataset.category === rollOnGender
+                && normalizeProductType(item.dataset.productType) === 'roll-on';
+            } else {
+              matchesCategory = matchesCategory && (
+                (categoryFilter === 'novidades' && item.dataset.newArrival === 'true')
+                || (categoryFilter === 'mais-vendidos' && item.dataset.bestSeller === 'true')
+                || item.dataset.category === categoryFilter
+              );
+            }
+          }
+          var matchesFilters = (!categories.length || categories.indexOf(item.dataset.category) !== -1)
+            && (!brands.length || brands.indexOf(item.dataset.brand) !== -1)
+            && (!productTypes.length || productTypes.indexOf(item.dataset.productType) !== -1)
+            && (!sizes.length || sizes.indexOf(item.dataset.size) !== -1)
+            && (!item.dataset.price || Number(item.dataset.price) <= maxPrice);
+          var matchesSelectedProduct = !selectedProductKey
+            || selectedProductKey === item.dataset.name + '|' + item.dataset.productType;
+          var visible = selectedProductKey
+            ? matchesCategory && matchesSelectedProduct
+            : matchesSearch && matchesCategory && matchesFilters;
+          item.hidden = !visible;
+          if (visible) visibleCount += 1;
+        });
+
+        var noResults = document.getElementById('no-results');
+        noResults.hidden = visibleCount > 0;
+        if (!visibleCount) {
+          document.getElementById('no-results-message').textContent = searchQuery
+            ? 'Não encontramos perfumes para "' + searchQuery + '".'
+            : 'Nenhum perfume corresponde aos filtros selecionados.';
+          var reset = document.getElementById('no-results-reset');
+          reset.href = searchQuery ? 'products.html' : 'products.html';
+        }
+        priceValue.textContent = new Intl.NumberFormat('pt-MZ').format(maxPrice) + ' MT';
+      }
+
+      function sortItems(mode) {
+        var sorted = items.slice();
+        sorted.sort(function (a, b) {
+          var priceA = Number(a.dataset.price) || Number.POSITIVE_INFINITY;
+          var priceB = Number(b.dataset.price) || Number.POSITIVE_INFINITY;
+          var orderDifference = Number(a.dataset.recommendedOrder) - Number(b.dataset.recommendedOrder);
+          if (mode === 'price-low' || mode === 'price-high') {
+            var groupA = !Number.isFinite(priceA) ? 1 : 0;
+            var groupB = !Number.isFinite(priceB) ? 1 : 0;
+            if (groupA !== groupB) return groupA - groupB;
+            var priceDifference = priceA - priceB;
+            return (mode === 'price-high' ? -priceDifference : priceDifference) || orderDifference;
+          }
+          if (mode === 'name-asc') return a.dataset.name.localeCompare(b.dataset.name);
+          if (mode === 'name-desc') return b.dataset.name.localeCompare(a.dataset.name);
+          if (mode === 'best-sellers' || mode === 'new-arrivals') {
+            var attribute = mode === 'best-sellers' ? 'bestSeller' : 'newArrival';
+            if (a.dataset[attribute] !== b.dataset[attribute]) return a.dataset[attribute] === 'true' ? -1 : 1;
+          }
+          return orderDifference;
+        });
+        sorted.forEach(function (item) { grid.appendChild(item); });
+        renderItems();
+      }
+
+      categoryButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          activateCategory(button.dataset.categoryFilter, true);
+        });
+      });
+
+      genderChoices.forEach(function (button) {
+        button.addEventListener('click', function () {
+          activateCategory(button.dataset.genderChoice, true);
+          perfumeListGroup.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+      });
+
+      mensShowAll.addEventListener('click', function () {
+        selectedProductKey = '';
+        mensShowAll.hidden = true;
+        mensFragranceList.querySelectorAll('.mens-fragrance-option').forEach(function (option) {
+          option.setAttribute('aria-pressed', 'false');
+        });
+        catalogTitle.textContent = activeFeatureCategory === 'feminino' ? 'Perfumes Femininos' : 'Perfumes Masculinos';
+        renderItems();
+      });
+
+      showCategoryProducts.addEventListener('click', function () {
+        selectedProductKey = '';
+        showCategoryProducts.hidden = true;
+        catalogTitle.textContent = perfumeListTitle.textContent;
+        perfumeListOptions.querySelectorAll('.perfume-list-option').forEach(function (option) {
+          option.setAttribute('aria-pressed', 'false');
+        });
+        renderItems();
+      });
+
+      document.querySelectorAll('.sidebar input').forEach(function (input) {
+        if (input.name === 'category') {
+          input.addEventListener('change', function () {
+            categoryButtons.forEach(function (button) {
+              button.classList.toggle('active', button.dataset.categoryFilter === 'all');
+            });
+          });
+        }
+        input.addEventListener('input', renderItems);
+        input.addEventListener('change', renderItems);
+      });
+      if (categoryButtons.some(function (button) {
+        return button.dataset.categoryFilter === requestedCategory;
+      })) activateCategory(requestedCategory, false);
+      if (searchQuery && catalogTitle) {
+        catalogTitle.textContent = 'Resultados da pesquisa';
+      }
+      select.addEventListener('change', function () { sortItems(select.value); });
+      sortItems(select.value);
+    })();
+  </script>
+  <script src="favorites.js"></script>
+  <script src="cart-drawer.js"></script>
+  <script src="product-search.js"></script>
+</body>
+</html>
