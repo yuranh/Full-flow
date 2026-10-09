@@ -44,11 +44,7 @@
        (product.displayName || '').toLocaleLowerCase('pt') === normalizedName);
   })[0];
   var brand = catalogProduct ? catalogProduct.brand : (params.get('brand') || 'Full Flow');
-  var priceValue = Number(params.get('price'));
-  var queryPrice = Number.isFinite(priceValue) && priceValue > 0 ? priceValue : null;
-  var price = catalogProduct
-    ? catalogProduct.price
-    : (queryPrice !== null ? queryPrice : (isRollOn ? 27 : null));
+  var price = catalogProduct ? catalogProduct.price : (isRollOn ? 130 : 370);
   var requestedImage = catalogProduct ? catalogProduct.image : (params.get('image') || '');
   var imageSource = /^[A-Za-z0-9_-]+\.(?:png|jpe?g|webp)$/i.test(requestedImage)
     ? requestedImage
@@ -139,6 +135,7 @@
     });
     if (cartItem) {
       cartItem.quantity += quantity;
+      cartItem.price = price;
     } else {
       cart.push({
         name: name,

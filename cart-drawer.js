@@ -73,7 +73,9 @@
           !Number.isInteger(Number(item.quantity)) || Number(item.quantity) < 1) {
         throw new Error('Um produto guardado no carrinho está inválido.');
       }
-      item.price = Number(item.price);
+      var productType = String(item.productType || '').trim().toLowerCase().replace(/\s+/g, '-');
+      var isRollOn = productType === 'rollon' || productType.indexOf('roll-on') !== -1;
+      item.price = isRollOn ? 130 : 370;
       item.quantity = Number(item.quantity);
       item.currency = 'MT';
     });

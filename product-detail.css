@@ -554,10 +554,12 @@ body.detail-page footer {
 .product-actions .buy-now { grid-column: 1 / -1; }
 .product-actions button:hover { filter: brightness(.96); }
 .cart-feedback { min-height: 15px; margin: 4px 0; color: #337b56; font-size: 10px; }
-.delivery-note,
-.payment-note { margin-top: 7px; color: #68768b; font-size: 10px; }
-.delivery-note span,
-.payment-note span { margin-right: 5px; color: #ed1680; }
+.product-detail-info .delivery-note,
+.product-detail-info .payment-note { display: flex; align-items: flex-start; gap: 7px; margin-top: 9px; color: #68768b; font-size: 10px; line-height: 1.5; }
+.product-detail-info .delivery-note svg,
+.product-detail-info .payment-note svg { width: 15px; height: 15px; flex: 0 0 15px; margin-top: 1px; fill: none; stroke: #ed1680; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+.product-detail-info .delivery-note span,
+.product-detail-info .payment-note span { min-width: 0; }
 .product-information { margin: 24px 0 25px; border-top: 1px solid #eceff3; }
 .product-tabs { display: flex; gap: clamp(12px, 3vw, 34px); overflow-x: auto; border-bottom: 1px solid #eceff3; scrollbar-width: none; }
 .product-tabs::-webkit-scrollbar { display: none; }

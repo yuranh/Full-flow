@@ -1009,7 +1009,7 @@ footer {
   .shop-hero-copy > p:not(.shop-eyebrow) { max-width: 250px; font-size: 11px; }
   .shop-hero-button { padding: 7px 12px; font-size: 10px; }
   .mens-featured { grid-template-columns: 1fr; height: auto; margin: 13px 0 18px; }
-  .mens-featured-image { min-height: 340px; }
+  .mens-featured-image { min-height: 0; height: clamp(230px, 68vw, 270px); }
   .mens-featured-image img { object-position: center 53%; }
   .mens-image-label { bottom: 14px; left: 15px; font-size: 8px; }
   .mens-featured-content { padding: 21px 17px; }
@@ -1017,7 +1017,7 @@ footer {
   .mens-featured h2 { font-size: 27px; }
   .mens-featured-intro { margin: 8px 0 15px; font-size: 11px; }
   .mens-featured-details { grid-template-columns: 1fr; gap: 14px; }
-  .mens-fragrance-list { max-height: 130px; gap: 3px 10px; }
+  .mens-fragrance-list { max-height: none; overflow: visible; gap: 3px 10px; padding-right: 0; }
   .mens-fragrance-option { font-size: 9px; }
   .mens-store-benefits { grid-template-columns: 1fr; gap: 8px; }
   .mens-store-benefits li { display: flex; align-items: center; }

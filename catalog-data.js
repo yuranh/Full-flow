@@ -8,26 +8,20 @@
     return normalized;
   }
 
-  function normalizePrice(value, fallback) {
-    var numericValue = Number(value);
-    if (!Number.isFinite(numericValue) || numericValue <= 0) return fallback;
-    return numericValue;
-  }
-
   var female = [
     { name: 'Armani - SI', brand: 'armani', label: 'Armani' },
     { name: 'Ariana Grande - Mod Vanilla', brand: 'ariana-grande', label: 'Ariana Grande' },
     { name: 'Azzaro - Wanted Girl', brand: 'azzaro', label: 'Azzaro' },
     { name: 'Boujee Marshmallow', brand: 'boujee', label: 'Boujee' },
-    { name: 'Carolina Herrera - Good Girl', brand: 'carolina-herrera', label: 'Carolina Herrera', price: 2700, size: '80ml', bestSeller: true },
+    { name: 'Carolina Herrera - Good Girl', brand: 'carolina-herrera', label: 'Carolina Herrera', size: '80ml', bestSeller: true },
     { name: 'Carolina Herrera - 212 VIP', brand: 'carolina-herrera', label: 'Carolina Herrera' },
-    { name: 'Carolina Herrera - 212 VIP Rose', brand: 'carolina-herrera', label: 'Carolina Herrera', price: 2300, size: '80ml', bestSeller: true, newArrival: true },
+    { name: 'Carolina Herrera - 212 VIP Rose', brand: 'carolina-herrera', label: 'Carolina Herrera', size: '80ml', bestSeller: true, newArrival: true },
     { name: 'Chanel Coco - Mademoiselle', brand: 'chanel', label: 'Chanel' },
-    { name: "Christian Dior - J'adore", brand: 'dior', label: 'Christian Dior', displayName: "J'adore Dior", image: 'lady.jpeg', price: 2800, size: '100ml', bestSeller: true },
+    { name: "Christian Dior - J'adore", brand: 'dior', label: 'Christian Dior', displayName: "J'adore Dior", image: 'lady.jpeg', size: '100ml', bestSeller: true },
     { name: 'Christian Dior - Miss Dior', brand: 'dior', label: 'Christian Dior', image: 'lady.jpeg' },
     { name: 'D&G - The One', brand: 'dolce-gabbana', label: 'D&G' },
     { name: 'DKNY - Be Delicious', brand: 'dkny', label: 'DKNY' },
-    { name: 'FULL FLOW Femme', brand: 'full-flow', label: 'Full Flow', image: 'full-flow-femme.png', price: 370 },
+    { name: 'FULL FLOW Femme', brand: 'full-flow', label: 'Full Flow', image: 'full-flow-femme.png' },
     { name: "Givenchy - L'interdit", brand: 'givenchy', label: 'Givenchy' },
     { name: 'Gucci - Flora', brand: 'gucci', label: 'Gucci' },
     { name: 'Gucci - Guilty', brand: 'gucci', label: 'Gucci' },
@@ -37,7 +31,7 @@
     { name: 'Katy Perry - Mad Love', brand: 'katy-perry', label: 'Katy Perry' },
     { name: 'Kayali - Juicy Apple', brand: 'kayali', label: 'Kayali' },
     { name: 'Kayali - Yum Pistachio Gelato', brand: 'kayali', label: 'Kayali' },
-    { name: 'Lancôme - La vie est belle', brand: 'lancome', label: 'Lancôme', price: 2600, size: '75ml', bestSeller: true },
+    { name: 'Lancôme - La vie est belle', brand: 'lancome', label: 'Lancôme', size: '75ml', bestSeller: true },
     { name: 'Lancôme - La Nuit Trésor', brand: 'lancome', label: 'Lancôme' },
     { name: 'Mont Blanc - Signature', brand: 'montblanc', label: 'Mont Blanc' },
     { name: 'Narciso Rodriguez - For her', brand: 'narciso-rodriguez', label: 'Narciso Rodriguez' },
@@ -48,13 +42,13 @@
     { name: 'Rihanna - Riri', brand: 'rihanna', label: 'Rihanna' },
     { name: 'Tom Ford - Noir Pour Femme', brand: 'tom-ford', label: 'Tom Ford' },
     { name: 'Tom Ford - Velvet Orchid', brand: 'tom-ford', label: 'Tom Ford' },
-    { name: 'Versace - Bright Crystal', brand: 'versace', label: 'Versace', displayName: 'Versace Bright Crystal', price: 2300, image: '12.png', size: '90ml', newArrival: true },
+    { name: 'Versace - Bright Crystal', brand: 'versace', label: 'Versace', displayName: 'Versace Bright Crystal', image: '12.png', size: '90ml', newArrival: true },
     { name: 'Versace - Crystal Noir', brand: 'versace', label: 'Versace' },
     { name: 'Versace - Dylan Blue Pour Femme', brand: 'versace', label: 'Versace' },
     { name: 'Versace - Dylan Purple Pour Femme', brand: 'versace', label: 'Versace' },
     { name: "Victoria's Secret - Bombshell", brand: 'victorias-secret', label: "Victoria's Secret" },
     { name: 'Xerjoff - Dama Bianca', brand: 'xerjoff', label: 'Xerjoff' },
-    { name: 'YSL - Black Opium', brand: 'ysl', label: 'YSL', displayName: 'Black Opium YSL', price: 2600, image: 'lady.jpeg', size: '90ml', bestSeller: true, newArrival: true },
+    { name: 'YSL - Black Opium', brand: 'ysl', label: 'YSL', displayName: 'Black Opium YSL', image: 'lady.jpeg', size: '90ml', bestSeller: true, newArrival: true },
     { name: 'Paco Rabanne - Olympea', brand: 'paco-rabanne', label: 'Paco Rabanne', type: 'rollon', size: '50ml' },
     { name: 'Carolina Herrera - Good Girl', brand: 'carolina-herrera', label: 'Carolina Herrera', type: 'rollon', size: '50ml' },
     { name: 'Full Flow Femme', brand: 'full-flow', label: 'Full Flow', type: 'rollon' },
@@ -62,7 +56,7 @@
     { name: 'Ariana Grande - Mod Vanilla', brand: 'ariana-grande', label: 'Ariana Grande', type: 'rollon' }
   ];
   var male = [
-    { name: 'Armani - Acqua di Gio', brand: 'armani', label: 'Armani', price: 2800, size: '50ml' },
+    { name: 'Armani - Acqua di Gio', brand: 'armani', label: 'Armani', size: '50ml' },
     { name: 'Armani - Stronger with you', brand: 'armani', label: 'Armani' },
     { name: 'Azzaro - Chrome', brand: 'azzaro', label: 'Azzaro' },
     { name: 'Azzaro - Wanted', brand: 'azzaro', label: 'Azzaro' },
@@ -73,13 +67,13 @@
     { name: 'Carolina Herrera - 212 VIP', brand: 'carolina-herrera', label: 'Carolina Herrera' },
     { name: 'Chanel - Bleau de Chanel', brand: 'chanel', label: 'Chanel' },
     { name: 'Creed - Aventus', brand: 'creed', label: 'Creed' },
-    { name: 'Christian Dior - Sauvage', brand: 'dior', label: 'Christian Dior', displayName: 'Sauvage Dior', price: 3000, image: 'mascu.jpeg', size: '100ml' },
+    { name: 'Christian Dior - Sauvage', brand: 'dior', label: 'Christian Dior', displayName: 'Sauvage Dior', image: 'mascu.jpeg', size: '100ml' },
     { name: 'Christian Dior - Fahrenheit', brand: 'dior', label: 'Christian Dior' },
     { name: 'D&G - Light Blue', brand: 'dolce-gabbana', label: 'D&G' },
     { name: 'Diesel - Bad', brand: 'diesel', label: 'Diesel' },
     { name: 'Diesel - Only the Brave', brand: 'diesel', label: 'Diesel' },
     { name: 'Dunhil - Desire', brand: 'dunhill', label: 'Dunhill' },
-    { name: 'FULL FLOW Homme', brand: 'full-flow', label: 'Full Flow', image: 'full-flow-homme.png', price: 370, size: '50ml' },
+    { name: 'FULL FLOW Homme', brand: 'full-flow', label: 'Full Flow', image: 'full-flow-homme.png', size: '50ml' },
     { name: 'Hugo Boss - Hugo', brand: 'hugo-boss', label: 'Hugo Boss' },
     { name: 'Hugo Boss - Orange', brand: 'hugo-boss', label: 'Hugo Boss' },
     { name: 'Hugo Boss - Original (BOTTLED)', brand: 'hugo-boss', label: 'Hugo Boss' },
@@ -114,7 +108,7 @@
     var productType = normalizeProductType(safeProduct.type);
     var isRollOn = productType === 'roll-on';
     var isFemale = gender === 'feminino';
-    var price = normalizePrice(safeProduct.price, isRollOn ? 130 : null);
+    var price = isRollOn ? 130 : 370;
     var detailPage = isRollOn
       ? (isFemale ? 'product-detail-rollon-ladies.html' : 'product-detail-rollon-men.html')
       : (isFemale ? 'product-detail-ladies-edp.html' : 'product-detail.html');
