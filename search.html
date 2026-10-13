@@ -40,7 +40,7 @@
   <main class="page">
     <div class="search-top">
       <form class="search-box" id="results-search-form">
-        <span class="search-icon" aria-hidden="true">O.</span>
+        <span class="search-icon" aria-hidden="true">⌕</span>
         <input id="perfume-search" type="search" placeholder="Procurar perfumes..." autocomplete="off" aria-label="Procurar perfumes" />
         <button class="search-submit" type="submit" aria-label="Pesquisar">⌕</button>
       </form>
@@ -98,7 +98,7 @@
         grid.replaceChildren();
         title.textContent = term ? 'Resultados da pesquisa: "' + term + '"' : 'Resultados da pesquisa';
         showAll.href = products.length ? 'products.html?q=' + encodeURIComponent(term) : 'products.html';
-        showAll.textContent = products.length ? 'Ver todos os resultados ?'' : 'Ver todos os produtos';
+        showAll.textContent = products.length ? 'Ver todos os resultados →' : 'Ver todos os produtos';
         empty.hidden = products.length > 0;
         empty.textContent = products.length ? '' : (term
           ? 'Nenhum produto encontrado. Não encontramos perfumes para "' + term + '".'
