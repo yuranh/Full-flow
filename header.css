@@ -106,6 +106,90 @@
 .site-header .main-nav a:hover,
 .site-header .main-nav a.active { color: #d00063; border-bottom-color: #d00063; }
 
+/* Dropdown Contacto */
+.site-header .nav-drop {
+  position: relative;
+  display: inline-block;
+}
+
+.site-header .nav-drop-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  color: #263246;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  background: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.site-header .nav-drop-toggle svg {
+  width: 10px;
+  height: 10px;
+  transition: transform 0.2s ease;
+}
+
+.site-header .nav-drop-toggle:hover,
+.site-header .nav-drop-toggle.active { color: #d00063; border-bottom-color: #d00063; }
+
+.site-header .nav-drop.open .nav-drop-toggle svg { transform: rotate(180deg); }
+
+.site-header .nav-drop-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 190px;
+  margin: 0;
+  padding: 6px 0;
+  list-style: none;
+  background: #fff;
+  border: 1px solid #eceef2;
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(20, 30, 50, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 30;
+}
+
+.site-header .nav-drop.open .nav-drop-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.site-header .nav-drop-menu a {
+  display: block;
+  padding: 9px 16px;
+  border-bottom: none;
+  color: #263246;
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-header .nav-drop-menu a:hover {
+  background: #fdf2f7;
+  color: #d00063;
+}
+
+@media (max-width: 780px) {
+  .site-header .nav-drop-menu {
+    left: auto;
+    right: 0;
+    transform: none;
+    min-width: 180px;
+  }
+}
+
 .site-header .header-search {
   width: 100%;
   display: flex;

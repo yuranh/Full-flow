@@ -40,9 +40,9 @@
   <main class="page">
     <div class="search-top">
       <form class="search-box" id="results-search-form">
-        <span class="search-icon" aria-hidden="true">⌕</span>
+        <span class="search-icon" aria-hidden="true">O.</span>
         <input id="perfume-search" type="search" placeholder="Procurar perfumes..." autocomplete="off" aria-label="Procurar perfumes" />
-        <button class="search-submit" type="submit" aria-label="Pesquisar">→</button>
+        <button class="search-submit" type="submit" aria-label="Pesquisar">⌕</button>
       </form>
       <a class="close-link" href="index.html">Fechar</a>
     </div>
@@ -62,7 +62,7 @@
     <div class="footer-main">
       <a class="footer-brand" href="index.html" aria-label="Full Flow"><img src="logo.png" alt="Full Flow Fragrances"></a>
       <div class="footer-col"><h3>Links Rápidos</h3><a href="index.html">Início</a><a href="products.html">Loja</a><a href="products.html#categories">Categorias</a><a href="index.html#about-us">Sobre Nós</a><a href="#contact">Contacto</a></div>
-      <div class="footer-col"><h3>Atendimento</h3><span class="footer-contact-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 3v12h10V6H7Zm4 14h2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg><span class="footer-contact-numbers"><a href="https://wa.me/27656134719">+27 65 613 4719</a><span aria-hidden="true">/</span><a href="https://wa.me/258846889950" aria-label="WhatsApp +258 846 889 950">846 889 950</a></span></span><a href="mailto:info@fullflow.co.mz">✉&nbsp; info@fullflow.co.mz</a><span class="footer-contact-line footer-location-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><a class="footer-location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Ahmed+Sekou+Tour%C3%A9%2C+3274%2C+Alto+Ma%C3%A9%2C+Maputo%2C+Mozambique" target="_blank" rel="noopener noreferrer" aria-label="Abrir localização no Google Maps">Maputo — Alto Maé<br>Av. Ahmed Sekou Touré, n.º 3274, próximo à escola Be-a-Bá.</a></span></div>
+      <div class="footer-col"><h3>Atendimento</h3><span class="footer-contact-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 3v12h10V6H7Zm4 14h2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg><span class="footer-contact-numbers"><a href="https://wa.me/27656134719">+27 65 613 4719</a><span aria-hidden="true">/</span><a href="https://wa.me/258846889950" aria-label="WhatsApp +258 846 889 950">846 889 950</a></span></span><a href="mailto:info@fullflow.co.mz">&#9993;&nbsp; info@fullflow.co.mz</a><span class="footer-contact-line footer-location-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><a class="footer-location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Ahmed+Sekou+Tour%C3%A9%2C+3274%2C+Alto+Ma%C3%A9%2C+Maputo%2C+Mozambique" target="_blank" rel="noopener noreferrer" aria-label="Abrir localização no Google Maps">Maputo ?" Alto Maé<br>Av. Ahmed Sekou Touré, n.º 3274, próximo à escola Be-a-Bá.</a></span></div>
       <div class="footer-col payment-col"><h3>Pagamento</h3><p class="payment-note">O pagamento é combinado com a equipa após a confirmação da encomenda pelo WhatsApp.</p></div>
     </div>
     <div class="footer-bottom"><span>© 2025 Full Flow Fragrances. Todos os direitos reservados.</span><div class="footer-social">
@@ -98,7 +98,7 @@
         grid.replaceChildren();
         title.textContent = term ? 'Resultados da pesquisa: "' + term + '"' : 'Resultados da pesquisa';
         showAll.href = products.length ? 'products.html?q=' + encodeURIComponent(term) : 'products.html';
-        showAll.textContent = products.length ? 'Ver todos os resultados →' : 'Ver todos os produtos';
+        showAll.textContent = products.length ? 'Ver todos os resultados ?'' : 'Ver todos os produtos';
         empty.hidden = products.length > 0;
         empty.textContent = products.length ? '' : (term
           ? 'Nenhum produto encontrado. Não encontramos perfumes para "' + term + '".'
@@ -141,6 +141,7 @@
     })();
   </script>
   <script src="favorites.js"></script>
+  <script src="nav-contact-drop.js"></script>
   <script src="cart-drawer.js"></script>
   <script src="product-search.js"></script>
 </body>
