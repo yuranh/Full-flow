@@ -713,6 +713,9 @@ footer {
 .mens-featured-details { display: grid; grid-template-columns: minmax(0, 1fr) minmax(175px, .82fr); gap: 20px; }
 .mens-fragrance-preview h3 { margin: 0 0 8px; color: #fff; font-size: 12px; }
 .mens-fragrance-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 8px; max-height: 152px; overflow-y: auto; padding-right: 4px; }
+.mens-fragrance-group { min-width: 0; }
+.mens-fragrance-group-title { margin: 0 0 8px; color: #fff; font-size: 12px; }
+.mens-fragrance-group .mens-fragrance-option { display: block; width: 100%; }
 .mens-fragrance-option { min-width: 0; padding: 5px 0; overflow: hidden; border: 0; border-bottom: 1px solid rgba(255, 255, 255, .1); color: #ff77b7; background: transparent; font: inherit; font-size: 10px; text-align: left; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; }
 .mens-fragrance-option:hover,
 .mens-fragrance-option[aria-pressed="true"] { color: #fff; border-bottom-color: #ed1680; }

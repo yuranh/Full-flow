@@ -322,11 +322,14 @@
           image: '3.PNG',
           alt: 'Óleo perfumado Tissue Oil Full Flow',
           label: 'FULL FLOW · TISSUE OIL',
-          eyebrow: 'CUIDADO PERFUMADO',
-          title: 'Um cuidado',
-          accent: 'com toque especial.',
-          intro: 'Conheça o óleo perfumado Full Flow para completar a sua rotina.',
-          comingSoon: true
+          eyebrow: 'TISSUE OIL',
+          title: 'Escolha a sua',
+          accent: 'fragrância.',
+          intro: 'Tissue Oil Full Flow disponível nas versões Ladies e Men.',
+          listTitle: 'Feminino',
+          fragrances: ['Paco Rabanne Olympea', 'Victoria’s Secret Rosy Ruby'],
+          secondListTitle: 'Masculino',
+          secondFragrances: ['Azzaro Wanted', 'Paco Rabanne Invictus Victory Elixir']
         },
         'creme-feminino': {
           image: '44.png',
@@ -627,12 +630,23 @@
         mensFragranceList.replaceChildren();
         var feature = collectionFeatures[category];
         if (feature.fragrances) {
-          feature.fragrances.forEach(function (fragrance) {
-            var label = document.createElement('span');
-            label.className = 'mens-fragrance-option';
-            label.textContent = fragrance;
-            mensFragranceList.appendChild(label);
-          });
+          function appendFragranceGroup(title, fragrances) {
+            var group = document.createElement('div');
+            group.className = 'mens-fragrance-group';
+            var groupTitle = document.createElement('h3');
+            groupTitle.className = 'mens-fragrance-group-title';
+            groupTitle.textContent = title;
+            group.appendChild(groupTitle);
+            fragrances.forEach(function (fragrance) {
+              var label = document.createElement('span');
+              label.className = 'mens-fragrance-option';
+              label.textContent = fragrance;
+              group.appendChild(label);
+            });
+            mensFragranceList.appendChild(group);
+          }
+          appendFragranceGroup(feature.listTitle, feature.fragrances);
+          if (feature.secondFragrances) appendFragranceGroup(feature.secondListTitle, feature.secondFragrances);
           return;
         }
         var gender = feature.gender || category;
@@ -681,6 +695,7 @@
         featureIntro.textContent = feature.intro;
         featureListTitle.textContent = feature.listTitle || '';
         featureListPreview.hidden = Boolean(feature.comingSoon && !feature.fragrances);
+        if (feature.secondListTitle) featureListTitle.textContent = '';
         featureComingSoon.hidden = !feature.comingSoon;
         featureCta.hidden = Boolean(feature.comingSoon);
         featureCta.firstChild.textContent = feature.cta || '';
