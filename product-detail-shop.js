@@ -78,7 +78,7 @@
     addToCartButton.disabled = true;
     buyNowButton.disabled = true;
     priceEnquiry.hidden = false;
-    priceEnquiry.href = 'https://wa.me/27656134719?text=' + encodeURIComponent(
+    priceEnquiry.href = 'https://wa.me/25856933138?text=' + encodeURIComponent(
       'Olá, equipa da Full Flow! Gostaria de confirmar o preço e a disponibilidade de ' + name + '.'
     );
   }
@@ -165,7 +165,7 @@
       + formatPrice(price) + '), quantidade: ' + quantity + ', total: '
       + formatPrice(price * quantity) +
       '. Por favor, confirme disponibilidade, entrega e pagamento.';
-    window.location.href = 'https://wa.me/27656134719?text=' + encodeURIComponent(message);
+    window.location.href = 'https://wa.me/25856933138?text=' + encodeURIComponent(message);
   });
 
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.product-tab'));

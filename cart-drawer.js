@@ -302,7 +302,7 @@
       totalByCurrency.MT = (totalByCurrency.MT || 0) + deliveryFee;
       lines.push('Total estimado: ' + formatTotals(totalByCurrency));
       lines.push('A equipa confirmará disponibilidade, entrega e pagamento antes de concluir a encomenda.');
-      window.location.href = 'https://wa.me/27656134719?text=' +
+      window.location.href = 'https://wa.me/25856933138?text=' +
         encodeURIComponent(lines.join('\n'));
     } catch (error) {
       showError(error);
