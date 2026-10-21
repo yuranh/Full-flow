@@ -583,6 +583,7 @@ a { color: inherit; }
 .product-info { min-height: 75px; padding: 8px 8px 22px; }
 .product-info a { display: block; overflow: hidden; color: #29364a; font-size: clamp(9px,1vw,12px); font-weight: 600; line-height: 1.3; text-decoration: none; text-overflow: ellipsis; }
 .product-info small { display: block; overflow: hidden; margin-top: 2px; color: #7a8aa1; font-size: clamp(8px,.85vw,10px); line-height: 1.2; text-overflow: ellipsis; white-space: nowrap; }
+.product-info .minimum-note { color: #c9005c; font-weight: 600; }
 .product-info strong { display: block; margin-top: 8px; color: #ba164d; font-size: clamp(11px,1.2vw,14px); }
 
 .cart-button {
