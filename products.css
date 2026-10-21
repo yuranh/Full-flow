@@ -763,11 +763,12 @@ footer {
 .category-chip.active { border-color: #ed1680; color: #fff; background: #ed1680; }
 
 .catalog {
-  grid-template-columns: 225px minmax(0, 1fr);
-  gap: 22px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   margin: 18px 0 28px;
 }
 .site-footer { display: block; }
+.catalog > .sidebar { display: none; }
 .sidebar {
   align-self: start;
   padding: 16px;

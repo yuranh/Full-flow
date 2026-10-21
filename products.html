@@ -32,7 +32,7 @@
       <nav class="main-nav" aria-label="Navegação principal">
         <a href="index.html">Início</a>
         <a class="active" href="products.html">Loja</a>
-        <a href="#categories">Categorias</a>
+        
         <a href="index.html#about-us">Sobre Nós</a>
         <a href="#contact">Contacto</a>
       </nav>
@@ -56,7 +56,6 @@
     </section>
 
     <nav class="shop-categories" aria-label="Filtrar por categoria">
-      <button class="category-chip active" type="button" data-category-filter="all">Todos</button>
       <button class="category-chip" type="button" data-category-filter="feminino">Femininos</button>
       <button class="category-chip" type="button" data-category-filter="masculino">Masculinos</button>
       <button class="category-chip" type="button" data-category-filter="roll-on-feminino">Roll-On feminino</button>
@@ -64,8 +63,6 @@
       <button class="category-chip" type="button" data-category-filter="oleo">Óleo</button>
       <button class="category-chip" type="button" data-category-filter="creme-feminino">Creme feminino</button>
       <button class="category-chip" type="button" data-category-filter="creme-masculino">Creme masculino</button>
-      <button class="category-chip" type="button" data-category-filter="novidades">Novidades</button>
-      <button class="category-chip" type="button" data-category-filter="mais-vendidos">Mais Vendidos</button>
     </nav>
 
     <section class="mens-featured" id="mens-collection-feature" aria-labelledby="mens-featured-title" hidden>
@@ -218,7 +215,7 @@
   <footer id="contact" class="site-footer">
     <div class="footer-main">
       <a class="footer-brand" href="index.html" aria-label="Full Flow"><img src="logo.png" alt="Full Flow Fragrances"></a>
-      <div class="footer-col"><h3>Links Rápidos</h3><a href="index.html">Início</a><a href="products.html">Loja</a><a href="products.html#categories">Categorias</a><a href="index.html#about-us">Sobre Nós</a><a href="#contact">Contacto</a></div>
+      <div class="footer-col"><h3>Links Rápidos</h3><a href="index.html">Início</a><a href="products.html">Loja</a><a href="index.html#about-us">Sobre Nós</a><a href="#contact">Contacto</a></div>
       <div class="footer-col"><h3>Atendimento</h3><span class="footer-contact-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 3v12h10V6H7Zm4 14h2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/></svg><span class="footer-contact-numbers"><a href="https://wa.me/258856933138" aria-label="WhatsApp +258 856 933 138">856 933 138</a></span></span><a href="mailto:info@fullflow.co.mz">&#9993;&nbsp; info@fullflow.co.mz</a><span class="footer-contact-line footer-location-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg><a class="footer-location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Ahmed+Sekou+Tour%C3%A9%2C+3274%2C+Alto+Ma%C3%A9%2C+Maputo%2C+Mozambique" target="_blank" rel="noopener noreferrer" aria-label="Abrir localização no Google Maps">Maputo ?" Alto Maé<br>Av. Ahmed Sekou Touré, n.º 3274, próximo à escola Be-a-Bá.</a></span></div>
       <div class="footer-col payment-col"><h3>Pagamento</h3><p class="payment-note">O pagamento é combinado com a equipa após a confirmação da encomenda pelo WhatsApp.</p></div>
     </div>
@@ -558,7 +555,9 @@
       var pageParams = new URLSearchParams(window.location.search);
       var searchQuery = pageParams.get('q') || '';
       var searchTerms = searchQuery.toLocaleLowerCase('pt').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim().split(/\s+/).filter(Boolean);
-      var requestedCategory = pageParams.get('category');
+      var requestedCategory = pageParams.get('category') || (!searchQuery ? 'feminino' : '');
+      var productsArea = document.querySelector('.products-area');
+      productsArea.hidden = !requestedCategory && !searchQuery;
       if (categoryButtons.some(function (button) {
         return button.dataset.categoryFilter === requestedCategory;
       })) {
@@ -656,14 +655,7 @@
           button.appendChild(name);
           button.appendChild(details);
           button.addEventListener('click', function () {
-            selectedProductKey = key;
-            perfumeListOptions.querySelectorAll('.perfume-list-option').forEach(function (option) {
-              option.setAttribute('aria-pressed', String(option.dataset.productKey === selectedProductKey));
-            });
-            showCategoryProducts.hidden = false;
-            catalogTitle.textContent = 'Perfume selecionado';
-            renderItems();
-            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.location.href = item.querySelector('.item-link').href;
           });
           perfumeListOptions.appendChild(button);
         });
@@ -690,15 +682,7 @@
                 var oilName = 'Tissue Oil - ' + fragrance;
                 var oilItem = items.find(function (item) { return item.dataset.name === oilName; });
                 if (!oilItem) return;
-                activateCategory('oleo', false);
-                selectedProductKey = oilItem.dataset.name + '|' + oilItem.dataset.productType;
-                mensShowAll.hidden = false;
-                mensFragranceList.querySelectorAll('.mens-fragrance-option').forEach(function (option) {
-                  option.setAttribute('aria-pressed', String(option.textContent === fragrance));
-                });
-                catalogTitle.textContent = oilName;
-                renderItems();
-                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                window.location.href = oilItem.querySelector('.item-link').href;
               });
               group.appendChild(button);
             });
@@ -722,14 +706,7 @@
           button.setAttribute('aria-pressed', String(selectedProductKey === key));
           button.textContent = item.querySelector('.item-link').textContent;
           button.addEventListener('click', function () {
-            selectedProductKey = key;
-            mensFragranceList.querySelectorAll('.mens-fragrance-option').forEach(function (option) {
-              option.setAttribute('aria-pressed', String(option.dataset.productKey === selectedProductKey));
-            });
-            mensShowAll.hidden = false;
-            catalogTitle.textContent = item.querySelector('.item-link').textContent;
-            renderItems();
-            grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            window.location.href = item.querySelector('.item-link').href;
           });
           mensFragranceList.appendChild(button);
         });
@@ -763,6 +740,7 @@
       }
 
       function activateCategory(category, clearFilters) {
+        productsArea.hidden = false;
         categoryButtons.forEach(function (button) {
           button.classList.toggle('active', button.dataset.categoryFilter === category);
         });
@@ -891,6 +869,10 @@
         button.addEventListener('click', function () {
           activateCategory(button.dataset.categoryFilter, true);
         });
+      });
+
+      document.querySelector('.shop-hero-button').addEventListener('click', function () {
+        productsArea.hidden = false;
       });
 
       genderChoices.forEach(function (button) {
