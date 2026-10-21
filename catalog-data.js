@@ -49,11 +49,11 @@
     { name: "Victoria's Secret - Bombshell", brand: 'victorias-secret', label: "Victoria's Secret" },
     { name: 'Xerjoff - Dama Bianca', brand: 'xerjoff', label: 'Xerjoff' },
     { name: 'YSL - Black Opium', brand: 'ysl', label: 'YSL', displayName: 'Black Opium YSL', image: 'lady.jpeg', size: '90ml', bestSeller: true, newArrival: true },
+    { name: 'Azzaro - Wanted Girl', brand: 'azzaro', label: 'Azzaro', type: 'rollon', size: '50ml' },
+    { name: 'CH Good Girl', brand: 'carolina-herrera', label: 'Carolina Herrera', type: 'rollon', size: '50ml' },
+    { name: 'Escada - Sol Y Fiesta', brand: 'escada', label: 'Escada', displayName: 'Escada – Sol Y Fiesta', type: 'rollon', size: '50ml' },
     { name: 'Paco Rabanne - Olympea', brand: 'paco-rabanne', label: 'Paco Rabanne', type: 'rollon', size: '50ml' },
-    { name: 'Carolina Herrera - Good Girl', brand: 'carolina-herrera', label: 'Carolina Herrera', type: 'rollon', size: '50ml' },
-    { name: 'Full Flow Femme', brand: 'full-flow', label: 'Full Flow', type: 'rollon' },
-    { name: 'Azzaro - Wanted Girl', brand: 'azzaro', label: 'Azzaro', type: 'rollon' },
-    { name: 'Ariana Grande - Mod Vanilla', brand: 'ariana-grande', label: 'Ariana Grande', type: 'rollon' }
+    { name: 'Victoria Secret - Rosy Ruby', brand: 'victorias-secret', label: "Victoria's Secret", displayName: 'Victoria Secret – Rosy Ruby', type: 'rollon', size: '50ml' }
   ];
   var male = [
     { name: 'Armani - Acqua di Gio', brand: 'armani', label: 'Armani', size: '50ml' },
@@ -96,11 +96,11 @@
     { name: 'Versace - Dylan Blue', brand: 'versace', label: 'Versace' },
     { name: 'Versace - Eros', brand: 'versace', label: 'Versace' },
     { name: 'Versace - Pour Homme', brand: 'versace', label: 'Versace' },
-    { name: 'Azzaro - Wanted', brand: 'azzaro', label: 'Azzaro', type: 'rollon' },
-    { name: 'Baccarat Rouge', brand: 'baccarat', label: 'Baccarat', type: 'rollon' },
-    { name: 'Carolina Herrera - 212 VIP', brand: 'carolina-herrera', label: 'Carolina Herrera', type: 'rollon' },
-    { name: 'Paco Rabanne - Invictus', brand: 'paco-rabanne', label: 'Paco Rabanne', type: 'rollon' },
-    { name: 'Jean Paul Gaultier - Scandal', brand: 'jpg', label: 'Jean Paul Gaultier', type: 'rollon' }
+    { name: 'Dior Sauvage', brand: 'dior', label: 'Dior', type: 'rollon', size: '50ml' },
+    { name: 'Azzaro - Wanted', brand: 'azzaro', label: 'Azzaro', type: 'rollon', size: '50ml' },
+    { name: 'Diesel Bad', brand: 'diesel', label: 'Diesel', type: 'rollon', size: '50ml' },
+    { name: 'JPG Scandal', brand: 'jpg', label: 'JPG', type: 'rollon', size: '50ml' },
+    { name: 'PR Invictus Victory Elixir', brand: 'paco-rabanne', label: 'Paco Rabanne', type: 'rollon', size: '50ml' }
   ];
 
   var productDetails = function (product, gender) {

@@ -195,7 +195,7 @@
     ? catalogProducts.filter(function (product) {
       return product.gender === gender && normalizeProductType(product.type) === 'roll-on';
     }).map(function (product) {
-      return { name: product.displayName, brand: product.brand };
+      return { name: product.displayName || product.name, brand: product.brand };
     })
     : (isFemale
     ? [
