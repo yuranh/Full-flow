@@ -740,7 +740,7 @@
       }
 
       function activateCategory(category, clearFilters) {
-        productsArea.hidden = false;
+        productsArea.hidden = Boolean(category);
         categoryButtons.forEach(function (button) {
           button.classList.toggle('active', button.dataset.categoryFilter === category);
         });
