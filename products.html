@@ -328,8 +328,16 @@
           intro: 'Tissue Oil Full Flow disponível nas versões Ladies e Men.',
           listTitle: 'Feminino',
           fragrances: ['Paco Rabanne Olympea', 'Victoria’s Secret Rosy Ruby'],
+          fragranceTargets: [
+            { gender: 'feminino', query: 'Olympea' },
+            { gender: 'feminino', query: 'Rosy Ruby' }
+          ],
           secondListTitle: 'Masculino',
-          secondFragrances: ['Azzaro Wanted', 'Paco Rabanne Invictus Victory Elixir']
+          secondFragrances: ['Azzaro Wanted', 'Paco Rabanne Invictus Victory Elixir'],
+          secondFragranceTargets: [
+            { gender: 'masculino', query: 'Wanted' },
+            { gender: 'masculino', query: 'Victory Elixir' }
+          ]
         },
         'creme-feminino': {
           image: '44.png',
@@ -630,23 +638,46 @@
         mensFragranceList.replaceChildren();
         var feature = collectionFeatures[category];
         if (feature.fragrances) {
-          function appendFragranceGroup(title, fragrances) {
+          function appendFragranceGroup(title, fragrances, targets) {
             var group = document.createElement('div');
             group.className = 'mens-fragrance-group';
             var groupTitle = document.createElement('h3');
             groupTitle.className = 'mens-fragrance-group-title';
             groupTitle.textContent = title;
             group.appendChild(groupTitle);
-            fragrances.forEach(function (fragrance) {
-              var label = document.createElement('span');
-              label.className = 'mens-fragrance-option';
-              label.textContent = fragrance;
-              group.appendChild(label);
+            fragrances.forEach(function (fragrance, index) {
+              var button = document.createElement('button');
+              button.className = 'mens-fragrance-option';
+              button.type = 'button';
+              button.textContent = fragrance;
+              if (targets && targets[index]) {
+                button.addEventListener('click', function () {
+                  var target = targets[index];
+                  var query = target.query.toLocaleLowerCase('pt').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                  var match = items.find(function (item) {
+                    var itemName = item.dataset.name.toLocaleLowerCase('pt').normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+                    return item.dataset.category === target.gender && itemName.indexOf(query) !== -1;
+                  });
+                  if (!match) return;
+                  activateCategory(target.gender, false);
+                  selectedProductKey = match.dataset.name + '|' + match.dataset.productType;
+                  mensShowAll.hidden = false;
+                  mensFragranceList.querySelectorAll('.mens-fragrance-option').forEach(function (option) {
+                    option.setAttribute('aria-pressed', option.textContent === fragrance);
+                  });
+                  catalogTitle.textContent = match.querySelector('.item-link').textContent;
+                  renderItems();
+                  grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                });
+              } else {
+                button.disabled = true;
+              }
+              group.appendChild(button);
             });
             mensFragranceList.appendChild(group);
           }
-          appendFragranceGroup(feature.listTitle, feature.fragrances);
-          if (feature.secondFragrances) appendFragranceGroup(feature.secondListTitle, feature.secondFragrances);
+          appendFragranceGroup(feature.listTitle, feature.fragrances, feature.fragranceTargets);
+          if (feature.secondFragrances) appendFragranceGroup(feature.secondListTitle, feature.secondFragrances, feature.secondFragranceTargets);
           return;
         }
         var gender = feature.gender || category;
