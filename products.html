@@ -327,6 +327,7 @@
           fragrances: ['Paco Rabanne Olympea', 'Victoria’s Secret Rosy Ruby'],
           secondListTitle: 'Masculino',
           secondFragrances: ['Azzaro Wanted', 'Paco Rabanne Invictus Victory Elixir'],
+          productKind: 'tissue-oil',
         },
         'creme-feminino': {
           image: '44.png',
@@ -340,12 +341,14 @@
           fragrances: [
             'Azzaro Wanted Girl',
             'CH Good Girl',
-            'Escada - Sol y Fiesta',
+            'Escada – Sol Y Fiesta',
             'Paco Rabanne Million Gold',
             'Paco Rabanne Olympea',
-            'Victoria?Ts Secret - Rosy Ruby'
+            'Victoria Secret – Rosy Ruby'
           ],
-          comingSoon: true
+          productKind: 'body-lotion',
+          groupGender: 'feminino',
+          hideCatalog: true
         },
         'creme-masculino': {
           image: '4.png',
@@ -364,7 +367,9 @@
             'JPG Scandal',
             'Paco Rabanne Invictus Victory Elixir'
           ],
-          comingSoon: true
+          productKind: 'body-lotion',
+          groupGender: 'masculino',
+          hideCatalog: true
         }
       };
       var oldFemaleItems = Array.prototype.slice.call(grid.querySelectorAll('.item[data-category="feminino"]'));
@@ -666,7 +671,7 @@
         mensFragranceList.replaceChildren();
         var feature = collectionFeatures[category];
         if (feature.fragrances) {
-          function appendFragranceGroup(title, fragrances, targets) {
+          function appendFragranceGroup(title, fragrances, gender) {
             var group = document.createElement('div');
             group.className = 'mens-fragrance-group';
             var groupTitle = document.createElement('h3');
@@ -679,17 +684,29 @@
               button.type = 'button';
               button.textContent = fragrance;
               button.addEventListener('click', function () {
-                var oilName = 'Tissue Oil - ' + fragrance;
-                var oilItem = items.find(function (item) { return item.dataset.name === oilName; });
-                if (!oilItem) return;
-                window.location.href = oilItem.querySelector('.item-link').href;
+                if (feature.productKind === 'tissue-oil') {
+                  var oilItem = items.find(function (item) { return item.dataset.name === 'Tissue Oil - ' + fragrance; });
+                  if (oilItem) window.location.href = oilItem.querySelector('.item-link').href;
+                  return;
+                }
+                if (feature.productKind === 'body-lotion') {
+                  var productParams = new URLSearchParams({
+                    product: fragrance,
+                    brand: 'Full Flow',
+                    price: '200',
+                    size: '200ml',
+                    gender: gender,
+                    image: gender === 'feminino' ? '44.png' : '4.png'
+                  });
+                  window.location.href = 'body-lotion-detail.html?' + productParams.toString();
+                }
               });
               group.appendChild(button);
             });
             mensFragranceList.appendChild(group);
           }
-          appendFragranceGroup(feature.listTitle, feature.fragrances);
-          if (feature.secondFragrances) appendFragranceGroup(feature.secondListTitle, feature.secondFragrances);
+          appendFragranceGroup(feature.listTitle, feature.fragrances, feature.groupGender || 'feminino');
+          if (feature.secondFragrances) appendFragranceGroup(feature.secondListTitle, feature.secondFragrances, 'masculino');
           return;
         }
         var gender = feature.gender || category;
@@ -717,7 +734,7 @@
         activeFeatureCategory = feature ? category : '';
         mensFeatured.hidden = !feature;
         shopHero.hidden = Boolean(feature);
-        catalog.hidden = Boolean(feature && feature.comingSoon);
+        catalog.hidden = Boolean(feature && (feature.comingSoon || feature.hideCatalog));
         if (!feature) return;
 
         featureImage.src = feature.image;
@@ -733,7 +750,7 @@
         featureListPreview.hidden = Boolean(feature.comingSoon && !feature.fragrances);
         if (feature.secondListTitle) featureListTitle.textContent = '';
         featureComingSoon.hidden = !feature.comingSoon;
-        featureCta.hidden = Boolean(feature.comingSoon);
+        featureCta.hidden = Boolean(feature.comingSoon || feature.productKind === 'body-lotion');
         featureCta.firstChild.textContent = feature.cta || '';
         mensShowAll.textContent = feature.itemLabel ? 'Ver todos os Roll-Ons' : 'Ver todos os perfumes';
         if (!feature.comingSoon || feature.fragrances) renderCollectionFragranceList(category);

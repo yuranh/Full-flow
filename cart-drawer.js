@@ -76,7 +76,8 @@
       var productType = String(item.productType || '').trim().toLowerCase().replace(/\s+/g, '-');
       var isRollOn = productType === 'rollon' || productType.indexOf('roll-on') !== -1;
       var isTissueOil = productType === 'tissue-oil';
-      item.price = isTissueOil ? 170 : (isRollOn ? 130 : 370);
+      var isBodyLotion = productType === 'body-lotion';
+      item.price = isTissueOil ? 170 : (isBodyLotion ? 200 : (isRollOn ? 130 : 370));
       item.quantity = Number(item.quantity);
       item.currency = 'MT';
     });

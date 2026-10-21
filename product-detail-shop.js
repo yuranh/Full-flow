@@ -28,10 +28,11 @@
   var isFemale = gender === 'feminino';
   var productType = normalizeProductType(page.dataset.productType);
   var isTissueOil = productType === 'tissue-oil';
+  var isBodyLotion = productType === 'body-lotion';
   var isRollOn = productType === 'roll-on';
   var currency = 'MT';
-  var defaultImage = page.dataset.productImageSource || (isTissueOil ? '3.PNG' : (isFemale ? 'lady.jpeg' : 'mascu.jpeg'));
-  var defaultName = isTissueOil ? 'Tissue Oil' : isRollOn
+  var defaultImage = page.dataset.productImageSource || (isTissueOil ? '3.PNG' : (isBodyLotion ? (isFemale ? '44.png' : '4.png') : (isFemale ? 'lady.jpeg' : 'mascu.jpeg')));
+  var defaultName = isTissueOil ? 'Tissue Oil' : isBodyLotion ? 'Creme corporal' : isRollOn
     ? (isFemale ? 'Paco Rabanne - Olympea' : 'Azzaro - Wanted')
     : (isFemale ? 'FULL FLOW FEMME' : 'FULL FLOW HOMME');
   var name = params.get('product') || defaultName;
@@ -39,7 +40,7 @@
   var catalogProduct = catalogProducts.filter(function (product) {
     var safeProductType = normalizeProductType(product.type);
     var sameGender = product.gender === gender;
-    var sameType = safeProductType === (isRollOn ? 'roll-on' : 'eau-de-parfum');
+    var sameType = !isBodyLotion && safeProductType === (isRollOn ? 'roll-on' : 'eau-de-parfum');
     var normalizedName = name.toLocaleLowerCase('pt');
     return sameGender && sameType &&
       ((product.name || '').toLocaleLowerCase('pt') === normalizedName ||
@@ -47,12 +48,12 @@
   })[0];
   var brand = catalogProduct ? catalogProduct.brand : (params.get('brand') || 'Full Flow');
   var requestedPrice = Number(params.get('price'));
-  var price = catalogProduct ? catalogProduct.price : (isTissueOil ? (Number.isFinite(requestedPrice) && requestedPrice > 0 ? requestedPrice : 170) : (isRollOn ? 130 : 370));
+  var price = catalogProduct ? catalogProduct.price : (isTissueOil ? (Number.isFinite(requestedPrice) && requestedPrice > 0 ? requestedPrice : 170) : (isBodyLotion ? (Number.isFinite(requestedPrice) && requestedPrice > 0 ? requestedPrice : 200) : (isRollOn ? 130 : 370)));
   var requestedImage = catalogProduct ? catalogProduct.image : (params.get('image') || '');
   var imageSource = /^[A-Za-z0-9_-]+\.(?:png|jpe?g|webp)$/i.test(requestedImage)
     ? requestedImage
     : defaultImage;
-  var requestedSize = catalogProduct ? catalogProduct.size : (params.get('size') || (isTissueOil ? '125ml' : ''));
+  var requestedSize = catalogProduct ? catalogProduct.size : (params.get('size') || (isTissueOil ? '125ml' : (isBodyLotion ? '200ml' : '')));
   var sizeMatch = requestedSize.match(/^(\d+(?:[.,]\d+)?)\s*ml$/i);
   var size = sizeMatch ? sizeMatch[1].replace(',', '.') + ' ml' : '';
   var sizeLabel = size || 'Tamanho a confirmar';
@@ -71,12 +72,16 @@
   brandLink.href = 'products.html#categories';
   var image = document.querySelector('[data-product-image]');
   image.src = imageSource;
-  image.alt = isTissueOil ? name + ', óleo perfumado Full Flow' : (isRollOn ? 'Roll-On ' : 'Perfume ') + (isFemale ? 'feminino' : 'masculino') + ' Full Flow - ' + name;
+  image.alt = isTissueOil ? name + ', óleo perfumado Full Flow' : isBodyLotion ? name + ', creme corporal Full Flow' : (isRollOn ? 'Roll-On ' : 'Perfume ') + (isFemale ? 'feminino' : 'masculino') + ' Full Flow - ' + name;
   document.querySelector('[data-product-price]').textContent = price === null ? 'Preço sob consulta' : formatPrice(price);
   document.querySelector('[data-product-size]').textContent = sizeLabel;
   if (isTissueOil) {
     document.querySelector('.product-type').firstChild.textContent = 'Tissue Oil · ';
     document.querySelector('.discount-tag').textContent = 'Óleo perfumado';
+  }
+  if (isBodyLotion) {
+    document.querySelector('.product-type').firstChild.textContent = 'Creme corporal · ';
+    document.querySelector('.discount-tag').textContent = 'Body Lotion';
   }
   var addToCartButton = document.querySelector('.add-to-cart');
   var buyNowButton = document.querySelector('.buy-now');
@@ -91,6 +96,8 @@
   }
   document.querySelector('[data-product-description]').textContent = isTissueOil
     ? name + ', óleo perfumado Full Flow para o corpo em embalagem de ' + sizeLabel + '.'
+    : isBodyLotion
+      ? 'Creme corporal Full Flow com fragrância ' + name + ', em embalagem de ' + sizeLabel + '.'
     :
     (isRollOn ? 'Roll-On ' : 'Perfume ') + (isFemale ? 'feminino' : 'masculino') +
     ' Full Flow ' + (isRollOn ? '' : 'perfume, ') + name +
@@ -99,6 +106,8 @@
   var featurePanel = document.getElementById('panel-features');
   featurePanel.querySelector('p').textContent = isTissueOil
     ? 'Categoria: Tissue Oil · Volume: ' + sizeLabel + '.'
+    : isBodyLotion
+      ? 'Categoria: Creme corporal · Volume: ' + sizeLabel + '.'
     :
     'Categoria: ' + (isRollOn ? 'Roll-On ' : 'Perfume ') + (isFemale ? 'feminino' : 'masculino') +
     (isRollOn ? ' · Volume: ' + sizeLabel + '.' : ' · Concentração: perfume · Volume: ' + sizeLabel + '.');
@@ -191,7 +200,7 @@
     });
   });
 
-  var relatedProducts = isTissueOil ? [] : isRollOn
+  var relatedProducts = isTissueOil || isBodyLotion ? [] : isRollOn
     ? catalogProducts.filter(function (product) {
       return product.gender === gender && normalizeProductType(product.type) === 'roll-on';
     }).map(function (product) {
