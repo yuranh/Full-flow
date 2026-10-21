@@ -903,6 +903,20 @@ footer {
     repeating-linear-gradient(165deg, transparent 0 34px, rgba(223, 236, 240, .18) 35px 37px, transparent 38px 68px),
     linear-gradient(145deg, #152b41, #31546a 56%, #77715d);
 }
+.item[data-product-type="tissue-oil"][data-oil-gender="feminino"] .thumb-link {
+  background-image:
+    radial-gradient(ellipse at 78% 22%, rgba(255, 239, 210, .84), transparent 32%),
+    radial-gradient(ellipse at 17% 75%, rgba(231, 164, 179, .7), transparent 40%),
+    linear-gradient(145deg, #58394e, #b47a83 56%, #dfbd9b);
+}
+.item[data-product-type="tissue-oil"][data-oil-gender="masculino"] .thumb-link {
+  background-color: #24435c;
+  background-image:
+    radial-gradient(ellipse at 78% 21%, rgba(180, 214, 225, .65), transparent 31%),
+    radial-gradient(ellipse at 16% 81%, rgba(171, 143, 100, .5), transparent 40%),
+    repeating-linear-gradient(165deg, transparent 0 34px, rgba(223, 236, 240, .18) 35px 37px, transparent 38px 68px),
+    linear-gradient(145deg, #152b41, #31546a 56%, #77715d);
+}
 .item[data-brand="full-flow"][data-product-type="eau-de-parfum"] .thumb {
   object-fit: contain;
   padding: 8px 12px 5px;
