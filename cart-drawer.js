@@ -75,7 +75,8 @@
       }
       var productType = String(item.productType || '').trim().toLowerCase().replace(/\s+/g, '-');
       var isRollOn = productType === 'rollon' || productType.indexOf('roll-on') !== -1;
-      item.price = isRollOn ? 130 : 370;
+      var isTissueOil = productType === 'tissue-oil';
+      item.price = isTissueOil ? 170 : (isRollOn ? 130 : 370);
       item.quantity = Number(item.quantity);
       item.currency = 'MT';
     });
@@ -302,7 +303,7 @@
       totalByCurrency.MT = (totalByCurrency.MT || 0) + deliveryFee;
       lines.push('Total estimado: ' + formatTotals(totalByCurrency));
       lines.push('A equipa confirmará disponibilidade, entrega e pagamento antes de concluir a encomenda.');
-      window.location.href = 'https://wa.me/25856933138?text=' +
+      window.location.href = 'https://wa.me/258856933138?text=' +
         encodeURIComponent(lines.join('\n'));
     } catch (error) {
       showError(error);
